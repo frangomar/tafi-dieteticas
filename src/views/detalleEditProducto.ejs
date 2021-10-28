@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/index.css">
+    </head>
+<body>
+
+  <%- include('./partials/header') %>
+  <main>
+    <article>
+        <div>
+          <img src="/images/auto.png" alt="">
+        </div>
+  
+        <p>Caracteristicas:</p>
+        <ul>
+          <li>Precio: <%= fruto.price %>  </li>
+          <li>categoria: <%= fruto.category %>  </li>
+          <li>nombre:<%= fruto.name %>  </li>
+          <li>descripcion: <%= fruto.description %>  </li>
+          <li>id: <%= fruto.id %> </li>
+        </ul>
+  
+        <div>
+          <a href="products/detail/<%= fruto.id %>/edit ">
+            <button type="button">Editar:</button>
+          </a>
+        </div>
+  
+      </article>
+
+    
+  </main>
+
+  <%- include('./partials/footer') %>

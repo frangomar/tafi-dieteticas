@@ -1,0 +1,407 @@
+/*//////////-GENERAL-//////////*/
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/*//////////-HEADER-//////////*/
+
+
+
+
+header {
+    background-color: #10AC84;
+    height: 60px;
+    padding: 10px 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marca {
+    width: 45px;
+}
+
+.carrito i {
+    display: none;
+}
+
+.barra input {
+    border: none;
+    border-radius: 20px;
+    height: 25px;
+    text-align: center;
+}
+
+.user h4 {
+ display: none;
+ text-decoration: none;
+}
+
+.burger-menu i{
+    
+    color: white;
+    size: 2x
+}
+
+.user i{
+    
+    color: white;
+    
+}
+
+
+
+
+
+/*//////////-MAIN-//////////*/
+.nombre{
+    font-weight: bold;
+}
+
+.agregar{
+    background-color: #10AC84;
+    width: 112px;
+    height: 28px;
+    border-radius: 4px;
+}
+
+.agregar a{
+    color: white;
+}
+.articulos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.producto{
+    width: 170px;
+    height: 224px;
+    font-size: 11px;
+    text-align: center;
+    padding: 5px;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.producto img{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+.precio {
+    font-size: 25px;
+    
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.mantequilla-de-mani{ 
+    display: flex;
+    flex-wrap: wrap; 
+    display:block;
+    margin:auto;
+    justify-content: center;
+    border: ridge #000000 1px;   
+    width: 250px;
+    height: 200px;
+    left: 103px;
+    top: 212px;
+    margin-top: 20px;
+        }
+
+.nombre-de-producto {
+    font-size: 20px;
+    font-weight: bold ;
+}
+.parrafo{
+    font-size: 12px;
+    margin: 10px;
+    border: ridge #10AC84 1px;
+    text-align: center;
+}
+
+/*//////////-FOOTER-//////////*/
+footer {
+    width: 100%;
+    background-color: #10AC84;
+    color: white;
+
+}
+
+.redes{
+    width: 35px;
+    background-color: #10AC84;
+    margin-bottom: 15px;
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.sub{
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.box__footer{
+    margin-bottom: 15px;
+}
+
+.box__footer a{
+    margin: auto;
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
+}
+
+.usuario{
+    display: none;
+}
+
+.usuario a{
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
+}
+
+.box__footer a:hover{
+    opacity: 0.8;
+}
+
+.usuario a:hover{
+    opacity: 0.8;
+}
+
+.logo-footer {
+    display: none;
+}
+
+/*//////////-MEDIA QUERIES-//////////*/
+
+@media (min-width:490px) {
+    
+
+    .navbar{
+        max-width: 550px;
+        margin: auto;
+    }
+
+    
+    
+    .barra {
+        width: 50%;
+    }
+
+    .barra input {
+        width: 100%;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+
+    .user h4 {
+        display: inline;
+        text-decoration: none;
+        margin-left: 5px;
+        color: white;
+        
+    }
+   
+    .carrito i {
+        display: inline;
+        text-decoration: none;
+        color: white;
+    }
+
+    .banner-index {
+        display: block;
+        padding: 15px 15px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .barra-categorias {
+        display: flex;
+        background-color: #10AC84;
+        font-size: 14px;
+        font-weight: 400;
+        justify-content: space-evenly;
+        padding: 10px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .barra-categorias a {
+        text-decoration: none;
+        color: white;
+    }
+    .usuario {
+        display: block;
+    }
+    footer {
+        margin: auto;
+    }
+
+    .logo-footer {
+        display: block;
+        margin: auto;
+        max-width:102px ;
+    }
+    .nombre-de-producto {
+        font-size: 30px;
+        font-weight: bold ;
+    }
+    .detail{
+        font-size: 25px;
+    }
+    .mantequilla-de-mani {
+        display: flex;
+        flex-wrap: wrap; 
+        display:block;
+        margin:auto;
+        justify-content: center;
+        border: ridge #000000 1px;
+        width: 400px;
+        height: 400px;
+        left: 15px;
+        top: 75px;
+        margin-top: 20px;
+        box-shadow: 0px 0px 10px rgb(100,100,100);
+        }
+
+    
+}
+
+@media ( min-width: 1200px) {
+    header {
+        max-width: 1200px;
+        margin:auto;
+    }
+
+    .navbar{
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .banner-index {
+        padding: 15px 15px 20px;
+    }
+
+    .producto1 {
+        flex: 20%;
+    }
+
+    .producto2 {
+        flex: 20%;
+    }
+
+    .producto3 {
+        flex: 20%;
+    }
+
+    .producto4 {
+        flex: 20%;
+    }
+    
+    .logo-footer {
+        display: block;
+        flex: 20%;
+        margin: 0;
+    }
+
+    footer {
+        max-width: 1200px;
+        margin: auto;
+        
+    }
+
+    .modoflex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        vertical-align: middle;
+
+        
+    }
+    
+
+    .titulo-pn {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: auto;
+        background-color: white;
+    }
+    
+    body {
+        background-color: lightgrey;
+    }
+
+    
+
+    .logo {
+        width: 80%;
+    }
+    .nombre-de-producto {
+        font-size: 30px;
+        font-weight: bold ;
+    }
+    .detail{
+        font-size: 25px;
+    }
+    .mantequilla-de-mani {
+        display: flex;
+        flex-wrap: wrap; 
+        display:block;
+        margin:auto;
+        justify-content: center;
+        border: ridge #000000 1px;
+        width: 400px;
+        height: 400px;
+        left: 15px;
+        top: 75px;
+        padding-top: 20px;
+        box-shadow: 0px 0px 10px rgb(100,100,100);
+        }
+}
+
+@media ( min-width: 1200px) {
+
+    .navbar{
+        max-width: 1200px;
+        margin: auto;
+    }
+    
+
+}
