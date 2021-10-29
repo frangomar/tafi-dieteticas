@@ -8,29 +8,37 @@
 
   <%- include('./partials/header') %>
   <main>
-    <article>
-        <div>
-          <img src="/images/auto.png" alt="">
-        </div>
-  
-        <p>Caracteristicas:</p>
-        <ul>
-          <li>Precio: <%= fruto.price %>  </li>
-          <li>categoria: <%= fruto.category %>  </li>
-          <li>nombre:<%= fruto.name %>  </li>
-          <li>descripcion: <%= fruto.description %>  </li>
+    <section class="form-register">
+      <form action="/products/:id/edit" method="POST">
+          
+          <h4>Nuevo Producto</h4>
+          <div>
+          <label for="producto">nombre de producto</label>
+          <input class="control" type="text" name="nombre de producto" id="producto" value="<%= fruto.name %>">
+          </div>
+
+
+          <div>
+          <label for="category">category</label>
+          <input class="control" type="text" name="category" id="category" value="<%= fruto.category %>">
+          </div>
+          
+          
+          <div>
+          <label for="price">precio</label>
+          <input class="control" type="number" name="price" id="price" value="<%= fruto.price %>">
+          </div>
+
+          <div>
+          <label for="description">Descripcion</label>
+          <input class="control" type="text" name="description" id="description" value="<%= fruto.description %>">
+          </div>
+          <button class="boton" type="submit">Registrarse</button>
+         
+      </form>
+  </section>
           <li>id: <%= fruto.id %> </li>
         </ul>
-  
-        <div>
-          <a href="products/detail/<%= fruto.id %> ">
-            <button type="button">Editar:</button>
-          </a>
-        </div>
-  
-      </article>
-
-    
   </main>
 
   <%- include('./partials/footer') %>
