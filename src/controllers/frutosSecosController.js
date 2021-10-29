@@ -33,7 +33,7 @@ const frutosSecosController = {
       }
       frutos.push(nuevoProducto);
       writeJson(frutos);
-      res.redirect('index')
+      res.redirect('/products/list')
     },
     detail: (req,res) => {
       let frutos = findAll();

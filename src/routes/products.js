@@ -8,5 +8,5 @@ router.get('/create', frutosSecosController.create);
 router.post('/create', frutosSecosController.store)
 router.get('/detail/:id', frutosSecosController.detail)
 router.get('/detail/:id/edit',frutosSecosController.edit )
-router.post('/detail/:id', frutosSecosController.update)
+router.post('/detail/:id/edit', frutosSecosController.update)
 module.exports = router;
