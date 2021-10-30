@@ -9,7 +9,7 @@
   <%- include('./partials/header') %>
   <main>
     <article class="producto">
-        <a href=""> <div class="contenedor-foto-producto">
+        <div class="contenedor-foto-producto">
           <img src="<%= fruto.image %>" class="foto-producto">
       </div>
       <div class="descripcion">
@@ -20,6 +20,10 @@
             <p class="parrafo" ><%= fruto.description %> </p> 
         </div>
       </div>
+      <a href="/products/detail/<%= fruto.id %>/edit"> 
+        <button type="submit">
+          editar
+        </button>
       </a>
       </article> 
     

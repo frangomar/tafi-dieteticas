@@ -64,7 +64,7 @@ const frutosSecosController = {
           return fruto;
         })
         writeJson(frutos);
-        res.redirect('detail/'+req.params.id)
+        res.redirect('/products/detail/'+req.params.id)
     }
     
 };
