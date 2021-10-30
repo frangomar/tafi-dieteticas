@@ -65,6 +65,15 @@ const frutosSecosController = {
         })
         writeJson(frutos);
         res.redirect('/products/detail/'+req.params.id)
+    },
+    destroy: (req, res) => {
+      let frutos = findAll ();
+
+      let nuevoArray = frutos.filter (function (fruto){
+        return fruto.id != req.params.id;
+      });
+      writeJson(nuevoArray);
+      res.redirect ('/products/list')
     }
     
 };

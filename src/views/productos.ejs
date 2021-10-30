@@ -11,7 +11,7 @@
     <section>
       <% frutos.forEach(function(fruto) { %>
         <article class="producto">
-          <a href=""> <div class="contenedor-foto-producto">
+          <a href="/products/detail/<%= fruto.id %>"> <div class="contenedor-foto-producto">
             <img src="<%= fruto.image %>" class="foto-producto">
         </div>
         <div class="descripcion">

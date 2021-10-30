@@ -9,4 +9,5 @@ router.post('/create', frutosSecosController.store)
 router.get('/detail/:id', frutosSecosController.detail)
 router.get('/detail/:id/edit',frutosSecosController.edit )
 router.post('/detail/:id/edit', frutosSecosController.update)
+router.delete('/detail/:id/delete', frutosSecosController.destroy)
 module.exports = router;

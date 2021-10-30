@@ -11,10 +11,10 @@
     <section class="form-register">
       <form action="/products/detail/<%= fruto.id %>/edit" method="POST">
           
-          <h4>Nuevo Producto</h4>
+          <h4>Edicion de producto</h4>
           <div>
-          <label for="producto">nombre de producto</label>
-          <input class="control" type="text" name="nombre de producto" id="producto" value="<%= fruto.name %>">
+          <label for="name">nombre de producto</label>
+          <input class="control" type="text" name="name" id="name" value="<%= fruto.name %>">
           </div>
 
 
@@ -35,11 +35,12 @@
           </div>
           <div>
             <button class="boton" type="submit">guardar</button>
-            <button class="boton" type="delete">borrar</button>
           </div>
-          
-         
-      </form>
+          </form>
+          <a href="/products/detail//<%= fruto.id %>/edit"></a>
+          <form action="/products/detail/<%= fruto.id %>/delete?_method=delete" method="POST">
+            <button class="boton" type="submit" id="delete">borrar</button>
+          </form>       
   </section>
   </main>
 
