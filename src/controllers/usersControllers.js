@@ -29,7 +29,8 @@ const usersControllers = {
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
-      category: req.body.category
+      category: req.body.category,
+      image: "../../public/img/"+req.file.filename
     }
 
     users.push(nuevoUser);
