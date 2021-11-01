@@ -4,7 +4,8 @@ const  usersControllers = require('../controllers/usersControllers');
 
 
 router.get('/', usersControllers.list);
-router.get("/create", usersControllers.create);
+router.get('/create', usersControllers.create);
+router.post('/create', usersControllers.store);
 
 
 module.exports = router;

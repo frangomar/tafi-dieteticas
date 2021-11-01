@@ -10,13 +10,9 @@
 
   <main>
     <section class="form-register">
-        <% if(locals.errors) {
-             errors.forEach(error =>{ %>
-                <p><% = error.msg %></p>
-            <% })
-        }
-        %>
-    <form action="registro" method="POST" 
+
+        
+    <form action="/users/create" method="POST" 
     enctype="multipart/form-data">
         
         <h4>Formulario Registro</h4>
@@ -36,13 +32,13 @@
         </div>
         
         <div>
-            <label for="password">contraseña</label>
-            <input class="control" type="password" name="password" id="password">
+            <label for="category">genero</label>
+            <input class="control" type="text" name="category" id="category">
         </div>
 
         <div>
-            <label for="re-password">confirmar contraseña</label>
-            <input class="control" type="password" name="re-password">
+            <label for="re-password">contraseña</label>
+            <input class="control" type="password" name="password">
         </div>
             <button class="boton" type="submit">Registrarse</button>
        

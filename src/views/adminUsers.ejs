@@ -12,13 +12,13 @@
       <% users.forEach(function(user) { %>
         <article class="producto">
           <a href="/products/detail/<%= user.id %>"> <div class="contenedor-foto-producto">
-            <img src="<%= user.image %>" class="foto-producto">
+            
         </div>
         <div class="descripcion">
-            <p class="nombre"> <%= user.firstName %></p>
-            <p class="nombre"><%= user.lastName %></p>
-            <p class="nombre"><%= user.email %> </p>
-            <p class="nombre"><%= user.password %> </p>
+            <p class="nombre"> nombre: <%= user.firstName %></p>
+            <p class="nombre"> apellido: <%= user.lastName %></p>
+            <p class="nombre"> email: <%= user.email %> </p>
+            <p class="nombre"> contraseña: <%= user.password %> </p>
         </div>
         </a>
         </article> 
