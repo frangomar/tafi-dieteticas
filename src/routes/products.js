@@ -4,14 +4,17 @@ const multer = require ('multer');
 const path = require ('path');
 const frutosSecosController = require('../controllers/frutosSecosController');
 
-const storage = multer.diskStorage({ 
-    destination: (req, file, cb) =>{ 
-       cb(null, '../../public/img'); 
-    }, 
-    filename: (req, file, cb) => { 
-       cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  
-    } 
-});
+const storage = multer.diskStorage({
+    destination: (req, file, cb) =>{
+       let folder = path.join (__dirname, '../../public/img');
+       cb(null, folder);
+    },
+    filename: (req, file, cb) => {
+       console.log(file)
+       let imageName = Date.now() + path.extname(file.originalname);
+       cb(null, imageName);
+    }
+ })
 
 let fileUpload = multer ({storage});
 

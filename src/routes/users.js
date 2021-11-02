@@ -4,17 +4,18 @@ const multer = require ('multer');
 const path = require('path');
 const  usersControllers = require('../controllers/usersControllers');
 
-let storage = multer.diskStorage({
-   destination: (req, res, cb) =>{
+const storage = multer.diskStorage({
+   destination: (req, file, cb) =>{
       let folder = path.join (__dirname, '../../public/img');
       cb(null, folder);
    },
-   filename: (req, res, cb) => {
+   filename: (req, file, cb) => {
+      console.log(file)
       let imageName = Date.now() + path.extname(file.originalname);
       cb(null, imageName);
    }
 })
-let fileUpload = multer ({storage:storage});
+const fileUpload = multer ({storage:storage});
 //let fileUpload = multer ({storage});
 
 router.get('/', usersControllers.list);
