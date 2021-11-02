@@ -4,15 +4,18 @@ const multer = require ('multer');
 const path = require('path');
 const  usersControllers = require('../controllers/usersControllers');
 
-const storage = multer.diskStorage({ 
-  destination: (req, file, cb) =>{ 
-     cb(null, '../public/img'); 
-  }, 
-  filename: (req, file, cb) => { 
-     cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } 
-});
-
-let fileUpload = multer ({storage});
+let storage = multer.diskStorage({
+   destination: (req, res, cb) =>{
+      let folder = path.join (__dirname, '../../public/img');
+      cb(null, folder);
+   },
+   filename: (req, res, cb) => {
+      let imageName = Date.now() + path.extname(file.originalname);
+      cb(null, imageName);
+   }
+})
+let fileUpload = multer ({storage:storage});
+//let fileUpload = multer ({storage});
 
 router.get('/', usersControllers.list);
 router.get('/create', usersControllers.create);

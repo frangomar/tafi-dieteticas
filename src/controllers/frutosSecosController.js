@@ -29,7 +29,8 @@ const frutosSecosController = {
         name:req.body.name ,
         description: req.body.description ,
         price: req.body.price,
-        category: req.body.category
+        category: req.body.category,
+        image: "../../public/img/"+req.file.filename
       }
       frutos.push(nuevoProducto);
       writeJson(frutos);
