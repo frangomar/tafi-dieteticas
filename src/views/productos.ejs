@@ -12,7 +12,7 @@
       <% frutos.forEach(function(fruto) { %>
         <article class="producto">
           <a href="/products/detail/<%= fruto.id %>"> <div class="contenedor-foto-producto">
-            <img src="<%= fruto.image %>" class="foto-producto">
+            <img src="/img/groups/<%= fruto.image ? fruto.image : 'productDefault.png' %>" class="foto-producto">
         </div>
         <div class="descripcion">
             <i class="fas fa-truck"></i>

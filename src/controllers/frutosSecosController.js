@@ -23,7 +23,8 @@ const frutosSecosController = {
     store: (req,res) => {
       let frutos = findAll();
       let ultimo = frutos.length - 1;
-
+      if (req.file){
+    
       let nuevoProducto = {
         id: Number(frutos[ultimo].id + 1),
         name:req.body.name ,
@@ -35,6 +36,24 @@ const frutosSecosController = {
       frutos.push(nuevoProducto);
       writeJson(frutos);
       res.redirect('/products/list')
+    }
+    else {
+      
+
+      let nuevoProducto = {
+        id: Number(frutos[ultimo].id + 1),
+        name:req.body.name ,
+        description: req.body.description ,
+        price: req.body.price,
+        category: req.body.category,
+        image: req.body.image,
+        
+      } 
+      frutos.push(nuevoProducto);
+      writeJson(frutos);
+      res.redirect('/products/list')
+    }
+    
     },
     detail: (req,res) => {
       let frutos = findAll();
