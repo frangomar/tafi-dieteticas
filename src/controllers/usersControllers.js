@@ -20,23 +20,41 @@ const usersControllers = {
         res.render('register')
     },
     store: (req, res) => {
-    let users = findAll();
-    let ultimo = users.length - 1;
+      let users = findAll();
+      let ultimo = users.length - 1;
+     if (req.file){
 
-    let nuevoUser = {
+       let nuevoUser = {
+         id: Number(users[ultimo].id + 1),
+         firstName:req.body.name,
+         lastName: req.body.lastName,
+         email: req.body.email,
+         password: req.body.password,
+         category: req.body.category,
+         image: "../../public/img/"+req.file.filename
+   }
+   users.push(nuevoUser);
+   writeJson(users);
+   res.redirect('/products/list')
+ }
+ else {
+
+   let nuevoUser = {
       id: Number(users[ultimo].id + 1),
-      firstName:req.body.name,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password,
-      category: req.body.category,
-      image: "../../public/img/"+req.file.filename
-    }
+       firstName:req.body.name,
+       lastName: req.body.lastName,
+       email: req.body.email,
+       password: req.body.password,
+       category: req.body.category,
+       image: req.body.image
+ }
+ users.push(nuevoUser);
+   writeJson(users);
+   res.redirect('/products/list')
+ }
 
-    users.push(nuevoUser);
-    writeJson(users);
-    res.redirect('/products/list')
-    },
+   
+   },
     /*edit: (req,res) => {
         let users = findAll();
           
