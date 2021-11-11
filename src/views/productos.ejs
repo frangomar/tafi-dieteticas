@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+  
     <head>
       <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/index.css">
     </head>
+    
 <body>
 
   <%- include('./partials/header') %>
@@ -12,7 +14,8 @@
       <% frutos.forEach(function(fruto) { %>
         <article class="producto">
           <a href="/products/detail/<%= fruto.id %>"> <div class="contenedor-foto-producto">
-            <img src="/img/groups/<%= fruto.image ? fruto.image : 'productDefault.png' %>" class="foto-producto">
+           <img src="../../public/img/<% fruto.image ? fruto.image: "productDefault.png" %>  class="foto-producto"> 
+
         </div>
         <div class="descripcion">
             <i class="fas fa-truck"></i>
