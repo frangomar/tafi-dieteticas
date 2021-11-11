@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 const multer = require ('multer');
 const path = require('path');
-const  usersControllers = require('../controllers/usersControllers');
+
+const logDBMiddleware = require('../middelwares/logDBMiddleware')
+
 
 const storage = multer.diskStorage({
    destination: (req, file, cb) =>{
@@ -15,12 +17,15 @@ const storage = multer.diskStorage({
       cb(null, imageName);
    }
 })
-const fileUpload = multer ({storage:storage});
 
+
+const fileUpload = multer ({storage:storage});
+const  usersControllers = require('../controllers/usersControllers');
+const validations = require('../middelwares/validationUsers')
 
 router.get('/', usersControllers.list);
 router.get('/create', usersControllers.create);
-router.post('/create', fileUpload.single('image') , usersControllers.store);
+router.post('/create', logDBMiddleware, validations, fileUpload.single('image'), usersControllers.store);
 
 
 module.exports = router;

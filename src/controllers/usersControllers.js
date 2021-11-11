@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const {validationResult} = require('express-validator');
 
 function findAll(){
       let usersJson= fs.readFileSync(path.join(__dirname, "../data/users.json"))
@@ -22,36 +23,28 @@ const usersControllers = {
     store: (req, res) => {
       let users = findAll();
       let ultimo = users.length - 1;
-     if (req.file){
 
-       let nuevoUser = {
-         id: Number(users[ultimo].id + 1),
-         firstName:req.body.name,
-         lastName: req.body.lastName,
-         email: req.body.email,
-         password: req.body.password,
-         category: req.body.category,
-         image: "../../public/img/"+req.file.filename
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        return res.render('register', {errors: resultValidation.mapped()});
+        
+      } else {
+          let nuevoUser = {
+            id: Number(users[ultimo].id + 1),
+            firstName:req.body.name,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            category: req.body.category,
+            image: "../../public/img/"+req.file.filename
+          }
+        users.push(nuevoUser);
+        writeJson(users);
+        res.redirect('/products/list')
    }
-   users.push(nuevoUser);
-   writeJson(users);
-   res.redirect('/products/list')
- }
- else {
-
-   let nuevoUser = {
-      id: Number(users[ultimo].id + 1),
-       firstName:req.body.name,
-       lastName: req.body.lastName,
-       email: req.body.email,
-       password: req.body.password,
-       category: req.body.category,
-       image: req.body.image
- }
- users.push(nuevoUser);
-   writeJson(users);
-   res.redirect('/products/list')
- }
+      
+      
+ 
 
    
    },

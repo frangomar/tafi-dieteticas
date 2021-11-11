@@ -7,6 +7,8 @@ var app = express();
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
+var logMiddleware = require('./middelwares/logMiddlewares');
+
 const { application } = require('express');
 const methodOverride = require ('method-override');
 
@@ -14,6 +16,8 @@ const methodOverride = require ('method-override');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(logMiddleware);
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
