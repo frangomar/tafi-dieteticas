@@ -1,14 +1,15 @@
 /*//////////-GENERAL-//////////*/
 
 *{
-    margin:0;
-    padding:0;
+    margin:0px;
+    padding:0px;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: lightgrey;
+}
+p {
+    font-size:14px;
 }
 
 /*//////////-HEADER-//////////*/
@@ -17,7 +18,7 @@ header {
     background-color: #10AC84;
     height: 60px;
     padding: 10px 15px;
-    box-shadow: 7px 13px 37px 000;
+    width: 100%;
 }
 
 .navbar {
@@ -28,6 +29,10 @@ header {
 
 .marca {
     width: 45px;
+}
+
+.carrito a {
+    text-decoration: none;
 }
 
 .carrito i {
@@ -41,26 +46,34 @@ header {
     text-align: center;
 }
 
+.user a {
+    text-decoration: none;
+}
+
 .user h4 {
  display: none;
- text-decoration: none;
+
 }
 
 .burger-menu i{
+    
     color: white;
-    size: 2x
 }
 
 .user i{
+    
     color: white;
+    
 }
 
+
 .form-register{
-    max-width: 1200px;
+    width: 1000px;
     background: white;
-    padding: 24px;
+    padding: 30px;
     margin: auto;
     margin-top: 100px;
+    margin-bottom: 100px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: black;
     box-shadow: 7px 13px 37px 000;
@@ -102,17 +115,6 @@ footer {
     width: 100%;
     background-color: #10AC84;
     color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    box-shadow: 7px 13px 37px 000;
-    vertical-align: middle;
 
 }
 
@@ -123,7 +125,15 @@ footer {
 }
 
 footer{
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 .sub{
@@ -164,6 +174,7 @@ footer{
     display: none;
 }
 
+/*////////////////////-MEDIA QUERIES-////////////////////*/
 
 @media (min-width:490px) {
     
@@ -201,6 +212,31 @@ footer{
         color: white;
     }
 
+    .banner-index {
+        display: block;
+        padding: 15px 15px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .barra-categorias {
+        display: flex;
+        background-color: #10AC84;
+        font-size: 14px;
+        font-weight: 400;
+        justify-content: space-evenly;
+        padding: 10px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .barra-categorias a {
+        text-decoration: none;
+        color: white;
+    }
+    .usuario {
+        display: block;
+    }
     footer {
         margin: auto;
     }
@@ -211,17 +247,14 @@ footer{
         max-width:102px ;
     }
 
-    .usuario {
-        display: block;
-        margin-bottom: 15px;
-    }
+    
 
+    
 }
 
 @media ( min-width: 1200px) {
-
-    body header {
-        max-width: 1200px;
+    header {
+        max-width: 1255px;
         margin:auto;
     }
 
@@ -230,6 +263,26 @@ footer{
         margin: auto;
     }
 
+    .banner-index {
+        padding: 15px 15px 20px;
+    }
+
+    .producto {
+        flex: 25%;
+    }
+
+    .producto {
+        flex: 20%;
+    }
+
+    .producto3 {
+        flex: 20%;
+    }
+
+    .producto4 {
+        flex: 20%;
+    }
+    
     .logo-footer {
         display: block;
         flex: 20%;
@@ -237,27 +290,36 @@ footer{
     }
 
     footer {
-        max-width: 1200px;
+        max-width: 1255px;
         margin: auto;
         
     }
 
-    .form-register{
-        display: flex;
-        margin: auto;
-    }
-
-
-    .container_footer {
+    .modoflex {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
         vertical-align: middle;
+
     }
 
-    .logo-footer {
+    .titulo-pn {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: auto;
+    }
+    
+    body {
+        background-color: lightgrey;
+    }
+
+    
+
+    .logo {
         width: 80%;
     }
-
-
 }
