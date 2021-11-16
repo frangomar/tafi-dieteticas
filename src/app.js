@@ -8,9 +8,11 @@ var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
 var logMiddleware = require('./middelwares/logMiddlewares');
+var bcrypt = require('bcrypt');
 
 const { application } = require('express');
 const methodOverride = require ('method-override');
+const session = require ("express-session");
 
 
 // view engine setup
@@ -25,6 +27,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride('_method'));
+app.use(session({
+  secret: "Mensaje secreto",
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use('/', indexRouter);
 app.use( '/products',productsRouter);
