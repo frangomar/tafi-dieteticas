@@ -133,6 +133,7 @@ main section  a {
 .descripcion {
     display: flex;
     flex-wrap: wrap;
+    padding: 12px 20px;
     flex-direction: row;
     justify-content: space-evenly;
     position: relative;
