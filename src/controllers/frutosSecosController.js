@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { Association } = require("sequelize/types");
+//const { Association } = require("sequelize/types");
 const db =require('../database/models');
 
 

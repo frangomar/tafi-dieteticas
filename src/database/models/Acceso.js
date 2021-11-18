@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, DataTypes) => {
-    let alias = 'Acceso';
+    let alias = 'Accesos';
     let cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     const Acceso = sequelize.define(alias, cols, config);
     
     Acceso.associate = function(models) {
-        Acceso.hsMany(models.Usuarios, {
+        Acceso.hasMany(models.Usuarios, {
             as: 'usuarios',
             foreignKey: 'access_id'
         })

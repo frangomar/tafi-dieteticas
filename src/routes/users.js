@@ -28,9 +28,9 @@ const validations = require('../middelwares/validationUsers')
 router.get('/', usersControllers.list);
 router.get('/create', usersControllers.create);
 router.post('/create', validations, fileUpload.single('image'), usersControllers.store);
-router.get ("/login", guestMiddleware, usersControllers.login)
-router.post ("/login ", validations, usersControllers.processLogin)
-router.get("/profile", authMiddleware , usersControllers.profile)
+router.post ("/login ", usersControllers.processLogin);
+router.get ("/login", guestMiddleware, usersControllers.login);
+router.get("/profile", authMiddleware , usersControllers.profile);
 
 
 module.exports = router;
