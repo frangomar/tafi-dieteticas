@@ -11,7 +11,7 @@ var logMiddleware = require('./middelwares/logMiddlewares');
 
 const { application } = require('express');
 const methodOverride = require ('method-override');
-
+const session = require('express-session');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(methodOverride('_method'));
+app.use(session({secret: 'mensaje secreto'}))
 
 app.use('/', indexRouter);
 app.use( '/products',productsRouter);
