@@ -3,8 +3,7 @@ var router = express.Router();
 const multer = require ('multer');
 const path = require('path');
 const {check} = require('express-validator');
-const authMiddleware = require ("../middelwares/authMiddleware")
-const guestMiddleware = require ("../middelwares/guestMiddleware")
+
 
 
 
@@ -28,9 +27,8 @@ const validations = require('../middelwares/validationUsers')
 router.get('/', usersControllers.list);
 router.get('/create', usersControllers.create);
 router.post('/create', validations, fileUpload.single('image'), usersControllers.store);
-router.get ("/login", guestMiddleware, usersControllers.login)
+router.get ("/login", usersControllers.login)
 router.post ("/login ", validations, usersControllers.processLogin)
-router.get("/profile", authMiddleware , usersControllers.profile)
 
 
 module.exports = router;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/index.css">
+    </head>
+<body>
+
+  <%- include('./partials/header') %>
+  <main>
+    <article class="usuario">
+        <div class="contenedor-foto-usuario">
+          <img src="<%= users.image %>" class="foto-usuario">
+      </div>
+      <div class="descripcion">
+          <i class="fas fa-truck"></i>
+          <p class="nombre">$<%= users.firstName %></p>
+          <p class="apellido"><%= users.lastName %> </p>
+          
+      </div>
+      
+      </article> 
+    
+  </main>
+
+  <%- include('./partials/footer') %>

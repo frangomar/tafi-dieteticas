@@ -6,6 +6,10 @@ const {check} = require('express-validator');
 const authMiddleware = require ("../middelwares/authMiddleware")
 const guestMiddleware = require ("../middelwares/guestMiddleware")
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> d0247557f188117d7c37271e49cba30d61e4464e
 
 
 const storage = multer.diskStorage({
@@ -28,7 +32,11 @@ const validations = require('../middelwares/validationUsers')
 router.get('/', usersControllers.list);
 router.get('/create', usersControllers.create);
 router.post('/create', validations, fileUpload.single('image'), usersControllers.store);
+<<<<<<< HEAD
+router.get ("/login", usersControllers.login)
+=======
 router.get ("/login", guestMiddleware, usersControllers.login)
+>>>>>>> d0247557f188117d7c37271e49cba30d61e4464e
 router.post ("/login ", validations, usersControllers.processLogin)
 router.get("/profile", authMiddleware , usersControllers.profile)
 
