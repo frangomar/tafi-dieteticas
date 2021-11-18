@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
       <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/register.css">
     </head>
 <body>
 
@@ -17,7 +17,7 @@
 
         <h4>Formulario Registro</h4>
         <div>
-            <label for="name">nombre de usuario</label>
+            <label for="name">Nombre de usuario</label>
             <input class="control " type="text" name="name" id="name" placeholder="ej:HE-MAN83">
             <% if (locals.errors && errors.name) { %>
                 <div class = 'text-danger'>
@@ -27,7 +27,7 @@
         </div>
 
         <div>
-            <label for="lastName">apellido</label>
+            <label for="lastName">Apellido</label>
             <input class="control " type="text" name="lastName" id="lastName" placeholder="ej:HE-MAN83">
             <% if (locals.errors && errors.lastName) { %>
                 <div class = 'text-danger'>
@@ -38,7 +38,7 @@
         </div>
 
         <div>
-            <label for="email">mail</label>
+            <label for="email">Mail</label>
             <input class="control " type="email" name="email" id="email" placeholder="ej:JuanPerez@mail.com">
             <% if (locals.errors && errors.email) { %>
                 <div class = 'text-danger'>
@@ -48,7 +48,7 @@
         </div>
         
         <div>
-            <label for="category">genero</label>
+            <label for="category">Genero</label>
             <input class="control " type="text" name="category" id="category">
             
                 <div class = 'text-danger'>
@@ -58,7 +58,7 @@
         </div>
 
         <div>
-            <label for="image">imagen</label>
+            <label for="image">Imagen</label>
             <input class="control " type="file" name="image" id="image">
             
                 <div class = 'text-danger'>
@@ -68,7 +68,7 @@
         </div>
 
         <div>
-            <label for="re-password">contraseña</label>
+            <label for="re-password">Contraseña</label>
             <input class="control " type="password" name="password">
             <% if (locals.errors && errors.password) { %>
                 <div class = 'text-danger'>

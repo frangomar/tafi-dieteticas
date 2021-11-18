@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/index.css">
+    </head>
+<body>
+
+  <%- include('./partials/header') %>
+
+  <main>
+    <section class="form-login">
+
+        
+    <form action="/users/login" method="POST">
+
+        <h4>Iniciar Sesión</h4>
+        <div>
+        <div>
+            <label for="email">mail</label>
+            <input class="control " type="email" name="email" id="email" placeholder="ej:JuanPerez@mail.com">
+            <% if (locals.errors && errors.email) { %>
+                <div class = 'text-danger'>
+                    <%= errors.email.msg %>
+                </div>
+            <% } %>
+        </div>
+
+        <div>
+            <label for="re-password">contraseña</label>
+            <input class="control " type="password" name="password">
+            <% if (locals.errors && errors.password) { %>
+                <div class = 'text-danger'>
+                    <%= errors.password.msg %>
+                </div>
+            <% } %>
+        </div>
+            <button class="boton" type="submit">Login</button>
+       
+    </form>
+</section>
+</main>
+    
+<%- include('./partials/footer') %>
+
+</body>
+</html>

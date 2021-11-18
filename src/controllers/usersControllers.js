@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const bcrypt = require ("bcrypt")
 const {validationResult} = require('express-validator');
 
 function findAll(){
@@ -42,11 +43,31 @@ const usersControllers = {
         writeJson(users);
         res.redirect('/products/list')
    }
-      
-      
- 
-
    
+   },
+   login: (req, res) =>{
+     return res.render("login")
+   },
+   processLogin : (req, res) => {
+    let users = findAll();
+    const resultValidation = validationResult(req);
+   
+    for (let  i = 0; i < users.length ; i++){
+      if (users[i].email== req.body.email){
+        if (bcrypt.compareSync(req.body.password, users[i].password)){
+          var usuarioALoguearse = users[i]
+          break;
+        }
+      }
+    }
+
+    if (usuarioALoguearse== undefined){
+      return res.render ("login", {errors: [
+        {msg: "Credenciales invalidas"}]
+       }
+       )
+    }
+    req.session.usuarioLogueado =  usuarioALoguearse
    },
     /*edit: (req,res) => {
         let users = findAll();
