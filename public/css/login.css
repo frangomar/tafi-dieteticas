@@ -1,13 +1,15 @@
 /*//////////-GENERAL-//////////*/
 
 *{
-    margin:0;
-    padding:0;
+    margin:0px;
+    padding:0px;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Roboto', sans-serif;
+}
+p {
+    font-size:14px;
 }
 
 /*//////////-HEADER-//////////*/
@@ -16,6 +18,7 @@ header {
     background-color: #10AC84;
     height: 60px;
     padding: 10px 15px;
+    width: 100%;
 }
 
 .navbar {
@@ -26,6 +29,10 @@ header {
 
 .marca {
     width: 45px;
+}
+
+.carrito a {
+    text-decoration: none;
 }
 
 .carrito i {
@@ -39,18 +46,24 @@ header {
     text-align: center;
 }
 
+.user a {
+    text-decoration: none;
+}
+
 .user h4 {
  display: none;
- text-decoration: none;
+
 }
 
 .burger-menu i{
+    
     color: white;
-    size: 2x
 }
 
 .user i{
+    
     color: white;
+    
 }
 
 
@@ -74,7 +87,7 @@ header {
 
 .form-login .boton{
     width: 100%;
-    background: blue;
+    background:green;
     border: none;
     padding: 12px;
     color: white;
@@ -89,27 +102,25 @@ header {
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;
-    border: 1px solid red;
+    border: 1px solid black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
 }
 
-footer{
-    width: 100vw;
+footer {
+    width: 100%;
     background-color: #10AC84;
     color: white;
-    left: 0px;
-    bottom: 0px;
-    margin-top: 30px;
+
 }
 
 .redes{
-    height: 35px;
     width: 35px;
     background-color: #10AC84;
+    margin-bottom: 15px;
 }
 
-.container_footer{
+footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -127,10 +138,12 @@ footer{
 }
 
 .box__footer{
-    padding: 10px;
+    margin-bottom: 15px;
 }
 
 .box__footer a{
+    margin: auto;
+    text-decoration: none;
     color: white;
     font-size: 11px;
 }
@@ -140,6 +153,7 @@ footer{
 }
 
 .usuario a{
+    text-decoration: none;
     color: white;
     font-size: 11px;
 }
@@ -156,11 +170,10 @@ footer{
     display: none;
 }
 
+/*////////////////////-MEDIA QUERIES-////////////////////*/
+
 @media (min-width:490px) {
     
-    .form-login {
-        max-width:490px ;
-    }
 
     .navbar{
         max-width: 550px;
@@ -195,41 +208,114 @@ footer{
         color: white;
     }
 
+    .banner-index {
+        display: block;
+        padding: 15px 15px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .barra-categorias {
+        display: flex;
+        background-color: #10AC84;
+        font-size: 14px;
+        font-weight: 400;
+        justify-content: space-evenly;
+        padding: 10px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .barra-categorias a {
+        text-decoration: none;
+        color: white;
+    }
+    .usuario {
+        display: block;
+    }
+    footer {
+        margin: auto;
+    }
+
+    .logo-footer {
+        display: block;
+        margin: auto;
+        max-width:102px ;
+    }
+
+    
+
+    
 }
 
 @media ( min-width: 1200px) {
-    body {
-        background-color: lightgray;
-    }
     header {
-        max-width: 1200px;
-        margin: auto;
+        max-width: 1255px;
+        margin:auto;
     }
+
     .navbar{
-        max-width: 1200px;
-        margin: auto;
-    }
-    main {
-        max-width: 1200px;
-        margin: auto;
-        background-color: white;
-    }
-    main {
-        padding: 30px 0;
-    }
-    footer {
-        max-width: 1200px;
+        max-width: 900px;
         margin: auto;
     }
 
-    .container_footer {
+    .banner-index {
+        padding: 15px 15px 20px;
+    }
+
+    .producto {
+        flex: 25%;
+    }
+
+    .producto {
+        flex: 20%;
+    }
+
+    .producto3 {
+        flex: 20%;
+    }
+
+    .producto4 {
+        flex: 20%;
+    }
+    
+    .logo-footer {
+        display: block;
+        flex: 20%;
+        margin: 0;
+    }
+
+    footer {
+        max-width: 1255px;
+        margin: auto;
+        
+    }
+
+    .modoflex {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
         vertical-align: middle;
+
     }
 
-    .logo-footer {
+    .titulo-pn {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: auto;
+    }
+    
+    body {
+        background-color: lightgrey;
+    }
+
+    
+
+    .logo {
         width: 80%;
     }
 }
