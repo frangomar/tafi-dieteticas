@@ -69,6 +69,10 @@ const usersControllers = {
     }
     req.session.usuarioLogueado =  usuarioALoguearse
    },
+   profile : (req, res) => {
+     let users = findAll
+     res.render ("profile", {users:users})
+   }
     /*edit: (req,res) => {
         let users = findAll();
           
