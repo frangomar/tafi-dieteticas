@@ -11,16 +11,16 @@
   <%- include('./partials/header') %>
   <main>
     <section>
-      <% frutos.forEach(function(fruto) { %>
+      <% productos.forEach(function(producto) { %>
         <article class="producto">
-          <a href="/products/detail/<%= fruto.id %>"> <div class="contenedor-foto-producto">
-           <img src="../../public/img/<% fruto.image ? fruto.image: "productDefault.png" %>  class="foto-producto"> 
+          <a href="/products/detail/<%= producto.id %>"> <div class="contenedor-foto-producto">
+           <img src="../../public/img/<% producto.image ? producto.image: "productDefault.png" %>  class="foto-producto"> 
 
         </div>
         <div class="descripcion">
             <i class="fas fa-truck"></i>
-            <p class="precio">$<%= fruto.price %></p>
-            <p class="nombre"><%= fruto.name %> </p>
+            <p class="precio">$<%= producto.price %></p>
+            <p class="nombre"><%= producto.title %> </p>
         </div>
         </a>
         </article> 

@@ -10,17 +10,17 @@
   <main>
     <article class="producto">
         <div class="contenedor-foto-producto">
-          <img src="<%= fruto.image %>" class="foto-producto">
+          <img src="<%= producto.image %>" class="foto-producto">
       </div>
       <div class="descripcion">
           <i class="fas fa-truck"></i>
-          <p class="precio">$<%= fruto.price %></p>
-          <p class="nombre"><%= fruto.name %> </p>
+          <p class="precio">$<%= producto.price %></p>
+          <p class="nombre"><%= producto.title %> </p>
           <div>
-            <p class="parrafo" ><%= fruto.description %> </p> 
+            <p class="parrafo" ><%= producto.description %> </p> 
         </div>
       </div>
-      <a href="/products/detail/<%= fruto.id %>/edit"> 
+      <a href="/products/detail/<%= producto.id %>/edit"> 
         <button type="submit">
           editar
         </button>

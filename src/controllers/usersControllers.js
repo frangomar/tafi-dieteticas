@@ -3,26 +3,44 @@ const path = require("path");
 const bcrypt = require ("bcrypt")
 const {validationResult} = require('express-validator');
 
-function findAll(){
+/*function findAll(){
       let usersJson= fs.readFileSync(path.join(__dirname, "../data/users.json"))
       let data = JSON.parse(usersJson)
       return data
-    };
-function writeJson(array){
+    };*/
+/*function writeJson(array){
       let arrayJson = JSON.stringify(array);
       return fs.writeFileSync(path.join(__dirname, "../data/users.json"), arrayJson);
-    };
+    };*/
 
 const usersControllers = {
     list: (req, res) => {
-        let users = findAll ();
-        res.render('adminUsers', {users});
+      db.Usuarios.findAll()
+       /* let users = findAll ();
+        res.render('adminUsers', {users});*/
     },
     create: (req, res) => {
         res.render('register')
     },
     store: (req, res) => {
-      let users = findAll();
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0) {
+        return res.render('register', {errors: resultValidation.mapped()});
+        
+      }else {
+      db.Usuarios.create({
+        firstName:req.body.firstname,
+        lastName:req.body.lastName,
+        email:req.body.email,
+        password: req.body.password,
+        gender: req.body.gender,
+        image:"../../public/img/"+req.file.filename,
+        access_id: req.body.access,
+
+      });
+      res.redirect('productos')
+    }
+      /*let users = findAll();
       let ultimo = users.length - 1;
 
       const resultValidation = validationResult(req);
@@ -43,7 +61,7 @@ const usersControllers = {
         writeJson(users);
         res.redirect('/products/list')
    }
-   
+   */
    },
    login: (req, res) =>{
      return res.render("login")

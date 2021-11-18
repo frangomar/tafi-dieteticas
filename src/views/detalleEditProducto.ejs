@@ -9,29 +9,29 @@
   <%- include('./partials/header') %>
   <main>
     <section class="form-register">
-      <form action="/products/detail/<%= fruto.id %>/edit" method="POST">
+      <form action="/products/detail/<%= producto.id %>/edit" method="POST">
           
           <h4>Edicion de producto</h4>
           <div>
           <label for="name">nombre de producto</label>
-          <input class="control" type="text" name="name" id="name" value="<%= fruto.name %>">
+          <input class="control" type="text" name="name" id="name" value="<%= producto.title %>">
           </div>
 
 
           <div>
           <label for="category">category</label>
-          <input class="control" type="text" name="category" id="category" value="<%= fruto.category %>">
+          <input class="control" type="text" name="category" id="category" value="<%= producto.category %>">
           </div>
           
           
           <div>
           <label for="price">precio</label>
-          <input class="control" type="number" name="price" id="price" value="<%= fruto.price %>">
+          <input class="control" type="number" name="price" id="price" value="<%= producto.price %>">
           </div>
 
           <div>
           <label for="description">Descripcion</label>
-          <input class="control" type="text" name="description" id="description" value="<%= fruto.description %>">
+          <input class="control" type="text" name="description" id="description" value="<%= producto.description %>">
           </div>
           <div>
             <button class="boton" type="submit">guardar</button>

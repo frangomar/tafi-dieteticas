@@ -1,5 +1,3 @@
-const { DataTypes } = require("sequelize/types");
-const { sequelize } = require(".");
 
 module.exports = (sequelize, DataTypes) => {
     let alias = 'Usuarios';
@@ -30,14 +28,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        access_id: {
-            type: DataTypes.INTEGER,
-            reference: {
-                model: Acceso,
-                key: 'id',
-                deferrable: DataTypes.Deferrable.INITIALLY_IMMEDIATE
-            }
-        },
+        
     };
     let config = {
         tableName: 'users',
@@ -46,5 +37,18 @@ module.exports = (sequelize, DataTypes) => {
 
     const Usuario = sequelize.define(alias, cols, config);
 
+    Usuario.associate = function(models) {
+        Usuario.belongsTo(models.Accesos, {
+            as: 'accesos',
+            foreignKey: 'access_id'
+        })
+        Usuario.belongsToMany(models.Productos, {
+            as: 'productos',
+            through: 'carrito_producto',
+            foreignKey:'user_id',
+            otherKey: 'product_id',
+            timestamp: false
+        })
+    }
     return Usuario;
 };
