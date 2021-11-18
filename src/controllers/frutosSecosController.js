@@ -34,7 +34,7 @@ const frutosSecosController = {
         title:req.body.title,
         description:req.body.description,
         price:req.body.price,
-        image:"../../public/img/"+req.file.filename,
+        image:"/public/img/"+req.file.filename,
         category: req.body.category,
 
       });

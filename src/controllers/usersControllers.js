@@ -67,7 +67,9 @@ const usersControllers = {
      return res.render("login")
    },
    processLogin : (req, res) => {
-    let users = findAll();
+     
+    db.Usuario.findAll()
+      .then()
     const resultValidation = validationResult(req);
    
     for (let  i = 0; i < users.length ; i++){
