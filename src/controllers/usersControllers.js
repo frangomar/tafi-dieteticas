@@ -3,8 +3,6 @@ const path = require("path");
 const bcryptjs = require ("bcryptjs")
 const {validationResult} = require('express-validator');
 const db =require('../database/models');
-
-
 /*function findAll(){
       let usersJson= fs.readFileSync(path.join(__dirname, "../data/users.json"))
       let data = JSON.parse(usersJson)

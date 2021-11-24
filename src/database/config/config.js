@@ -1,8 +1,8 @@
-{
+module.exports={
   "development": {
     "username": "root",
     "password": "edendaiang",
-    "database": "database_development",
+    "database": "tafi",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
