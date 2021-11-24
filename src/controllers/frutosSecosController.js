@@ -4,7 +4,7 @@ const path = require("path");
 const db =require('../database/models');
 
 
-function findAll(){
+/*function findAll(){
       let productsJson= fs.readFileSync(path.join(__dirname, "../data/products.json"))
       let data = JSON.parse(productsJson)
       return data
@@ -12,13 +12,11 @@ function findAll(){
 function writeJson(array){
       let arrayJson = JSON.stringify(array);
       return fs.writeFileSync(path.join(__dirname, "../data/products.json"), arrayJson);
-    };
+    };*/
 
 const frutosSecosController = {
     list: (req, res) => {
-      db.Productos.findAll({
-        include: [{association: 'categorias'}]
-      })
+      db.Productos.findAll()
       .then(function(productos) {
         res.render('productos', {productos:productos});
 

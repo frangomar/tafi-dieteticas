@@ -25,6 +25,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
+        category_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
         
     };
     let config = {
