@@ -16,6 +16,7 @@ const db =require('../database/models');
 const usersControllers = {
     list: (req, res) => {
       db.Usuarios.findAll()
+      .then(res.render('adminUsers', {users}))
        /* let users = findAll ();
         res.render('adminUsers', {users});*/
     },
