@@ -1,7 +1,9 @@
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require ("bcrypt")
+const bcryptjs = require ("bcryptjs")
 const {validationResult} = require('express-validator');
+const db =require('../database/models');
+
 
 /*function findAll(){
       let usersJson= fs.readFileSync(path.join(__dirname, "../data/users.json"))
@@ -88,6 +90,9 @@ const usersControllers = {
        )
     }
     req.session.usuarioLogueado =  usuarioALoguearse
+    if (req.body.recordame != undefined){
+      res.cookie ("recordame", usuarioALoguearse.email, {maxAge: 600000})
+    }
    },
    profile : (req, res) => {
      let users = findAll
