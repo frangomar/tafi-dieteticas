@@ -7,7 +7,7 @@ var app = express();
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
-var bcryptjs = require('bcryptjs');
+
 const { application } = require('express');
 const methodOverride = require ('method-override');
 const session = require ("express-session");
@@ -18,8 +18,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // middlewares
-const recordameMiddleware = require ("./middelwares/recordameMiddleware");
-app.use (recordameMiddleware);
+/*const recordameMiddleware = require ("./middelwares/recordameMiddleware");
+app.use (recordameMiddleware);*/
 
 
 app.use(logger('dev'));
@@ -33,6 +33,8 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+
+
 
 app.use('/', indexRouter);
 app.use( '/products',productsRouter);

@@ -1,83 +1,65 @@
 const fs = require("fs");
 const path = require("path");
-const bcryptjs = require ("bcryptjs")
+
 const {validationResult} = require('express-validator');
 const db =require('../database/models');
-/*function findAll(){
-      let usersJson= fs.readFileSync(path.join(__dirname, "../data/users.json"))
-      let data = JSON.parse(usersJson)
-      return data
-    };*/
-/*function writeJson(array){
-      let arrayJson = JSON.stringify(array);
-      return fs.writeFileSync(path.join(__dirname, "../data/users.json"), arrayJson);
-    };*/
+const users = require ("../database/models/Usuario")
 
 const usersControllers = {
-    list: (req, res) => {
-      db.Usuarios.findAll()
-       /* let users = findAll ();
-        res.render('adminUsers', {users});*/
+  list: (req, res) => {
+    db.Usuarios.findAll()
+    .then(function(usuarios) {
+      res.render('adminUsers', {usuarios:usuarios});
+
+    })
+      
+  },
+    create: async (req, res) => {
+     res.render ("register")
+      
     },
-    create: (req, res) => {
-        res.render('register')
-    },
-    store: (req, res) => {
-      const resultValidation = validationResult(req);
-      if (resultValidation.errors.length > 0) {
-        return res.render('register', {errors: resultValidation.mapped()});
-        
-      }else {
-      db.Usuarios.create({
-        firstName:req.body.firstname,
-        lastName:req.body.lastName,
+    
+    store: async function(req, res){
+      
+      const errores = validationResult(req);
+        /*
+        if(!errores.isEmpty()){
+              return res.render("register", {
+                  errores: errores.errors,
+                  oldData: req.body,
+                 
+              })
+      
+          }*/
+          console.log(req.body)
+      await db.Usuarios.create({
+        firstName:req.body.firstName,
+        lastname:req.body.lastName,
         email:req.body.email,
         password: req.body.password,
         gender: req.body.gender,
-        image:"../../public/img/"+req.file.filename,
-        access_id: req.body.access,
-
-      });
-      res.redirect('productos')
-    }
-      /*let users = findAll();
-      let ultimo = users.length - 1;
-
-      const resultValidation = validationResult(req);
-      if (resultValidation.errors.length > 0) {
-        return res.render('register', {errors: resultValidation.mapped()});
-        
-      } else {
-          let nuevoUser = {
-            id: Number(users[ultimo].id + 1),
-            firstName:req.body.name,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password,
-            category: req.body.category,
-            image: "../../public/img/"+req.file.filename
-          }
-        users.push(nuevoUser);
-        writeJson(users);
-        res.redirect('/products/list')
-   }
-   */
-   },
+        image: req.file.filename,
+        access_id: "1",
+      })
+      /*.then(function(){
+      return res.redirect('/users/login');
+  })*/
+    res.redirect("/users/login")
+  },
+    
    login: (req, res) =>{
      return res.render("login")
    },
    processLogin : (req, res) => {
-     
-    db.Usuario.findAll()
-      .then()
+    
     const resultValidation = validationResult(req);
    
     for (let  i = 0; i < users.length ; i++){
       if (users[i].email== req.body.email){
-        if (bcrypt.compareSync(req.body.password, users[i].password)){
+        
           var usuarioALoguearse = users[i]
           break;
-        }
+       
       }
     }
 
@@ -87,15 +69,17 @@ const usersControllers = {
        }
        )
     }
-    req.session.usuarioLogueado =  usuarioALoguearse
+    req.session.usuarioALoguearse =  usuarioLogueado
     if (req.body.recordame != undefined){
-      res.cookie ("recordame", usuarioALoguearse.email, {maxAge: 600000})
+      res.cookie ("recordame", usuarioLogueado.email, {maxAge: 600000})
     }
    },
    profile : (req, res) => {
-     let users = findAll
-     res.render ("profile", {users:users})
-   }
+      db.Usuarios.findByPk(req.params.id)
+      .then(function(usuario) {
+        res.render('adminUsers', {usuario:usuario})
+   })
+  },
     /*edit: (req,res) => {
         let users = findAll();
           

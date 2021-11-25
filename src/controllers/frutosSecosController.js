@@ -24,7 +24,7 @@ const frutosSecosController = {
         
     },
     create: (req, res) => {
-      let frutos = findAll();
+    
       res.render('formProduct');
     },
     store: (req,res) => {
