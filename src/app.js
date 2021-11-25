@@ -7,7 +7,7 @@ var app = express();
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
-var bcryptjs = require('bcryptjs');
+
 const { application } = require('express');
 const methodOverride = require ('method-override');
 const session = require ("express-session");
@@ -32,6 +32,8 @@ app.use(session({
 }));
 app.use (userLoggedMiddleware);
 //app.use(bcryptjs())
+
+
 
 app.use('/', indexRouter);
 app.use( '/products',productsRouter);

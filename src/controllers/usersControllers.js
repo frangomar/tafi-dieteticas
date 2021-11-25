@@ -1,46 +1,48 @@
 const fs = require("fs");
 const path = require("path");
-const bcryptjs = require ("bcryptjs")
+
 const {validationResult} = require('express-validator');
 const db =require('../database/models');
-/*function findAll(){
-      let usersJson= fs.readFileSync(path.join(__dirname, "../data/users.json"))
-      let data = JSON.parse(usersJson)
-      return data
-    };*/
-/*function writeJson(array){
-      let arrayJson = JSON.stringify(array);
-      return fs.writeFileSync(path.join(__dirname, "../data/users.json"), arrayJson);
-    };*/
+const users = require ("../database/models/Usuario")
 
 const usersControllers = {
-    list: (req, res) => {
-      db.Usuarios.findAll()
-      .then(res.render('adminUsers', {users}))
-       /* let users = findAll ();
-        res.render('adminUsers', {users});*/
+  list: (req, res) => {
+    db.Usuarios.findAll()
+    .then(function(usuarios) {
+      res.render('adminUsers', {usuarios:usuarios});
+
+    })
+      
+  },
+    create: async (req, res) => {
+     res.render ("register")
+      
     },
-    create: (req, res) => {
-        res.render('register')
-    },
-    store: (req, res) => {
-      const resultValidation = validationResult(req);
-      if (resultValidation.errors.length > 0) {
-        return res.render('register', {errors: resultValidation.mapped()});
-        
-      }else {
-      db.Usuarios.create({
-        firstName:req.body.firstname,
-        lastName:req.body.lastName,
+    
+    store: async function(req, res){
+      
+      const errores = validationResult(req);
+        /*
+        if(!errores.isEmpty()){
+              return res.render("register", {
+                  errores: errores.errors,
+                  oldData: req.body,
+                 
+              })
+      
+          }*/
+          console.log(req.body)
+      await db.Usuarios.create({
+        firstName:req.body.firstName,
+        lastname:req.body.lastName,
         email:req.body.email,
         password: req.body.password,
         gender: req.body.gender,
-        image:"../../public/img/"+req.file.filename,
-        access_id: req.body.access,
-
-      });
-      res.redirect('productos')
-    } 
+        image: req.file.filename,
+        access_id: "1",
+      })
+      
+    res.redirect("/users/login")
   },
   login: (req, res) =>{
 

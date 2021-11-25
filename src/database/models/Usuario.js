@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        lastName: {
+        lastname: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -33,6 +33,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        access_id: {
+            type:  DataTypes.INTEGER,
+            allowNull: false
+        }
     };
     let config = {
         tableName: 'users',

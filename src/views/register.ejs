@@ -17,8 +17,8 @@
 
         <h4>Formulario Registro</h4>
         <div>
-            <label for="name">Nombre de usuario</label>
-            <input class="control " type="text" name="name" id="name" placeholder="ej:HE-MAN83">
+            <label for="firstName">Nombre de usuario</label>
+            <input class="control " type="text" name="firstName" id="firstName"  placeholder="ej:HE-MAN83">
             <% if (locals.errors && errors.name) { %>
                 <div class = 'text-danger'>
                     <%= errors.name.msg %>
@@ -48,8 +48,8 @@
         </div>
         
         <div>
-            <label for="category">Genero</label>
-            <input class="control " type="text" name="category" id="category">
+            <label for="gender">Genero</label>
+            <input class="control " type="text" name="gender" id="gender">
             
                 <div class = 'text-danger'>
                     
@@ -76,6 +76,7 @@
                 </div>
             <% } %>
         </div>
+            
             <button class="boton" type="submit">Registrarse</button>
        
     </form>
