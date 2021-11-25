@@ -42,5 +42,5 @@ module.exports = (sequelize, DataTypes) => {
             timestamp: false
         })
     }
-    return Usuario;
+    return Carro;
 };

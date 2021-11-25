@@ -11,16 +11,13 @@ var bcryptjs = require('bcryptjs');
 const { application } = require('express');
 const methodOverride = require ('method-override');
 const session = require ("express-session");
-
+const userLoggedMiddleware = require ("./middelwares/userLoggedMiddleware");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // middlewares
-const recordameMiddleware = require ("./middelwares/recordameMiddleware");
-app.use (recordameMiddleware);
-
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +30,8 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+app.use (userLoggedMiddleware);
+//app.use(bcryptjs())
 
 app.use('/', indexRouter);
 app.use( '/products',productsRouter);

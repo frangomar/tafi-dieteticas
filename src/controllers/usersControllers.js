@@ -40,94 +40,49 @@ const usersControllers = {
 
       });
       res.redirect('productos')
-    }
-      /*let users = findAll();
-      let ultimo = users.length - 1;
+    } 
+  },
+  login: (req, res) =>{
 
-      const resultValidation = validationResult(req);
-      if (resultValidation.errors.length > 0) {
-        return res.render('register', {errors: resultValidation.mapped()});
-        
-      } else {
-          let nuevoUser = {
-            id: Number(users[ultimo].id + 1),
-            firstName:req.body.name,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password,
-            category: req.body.category,
-            image: "../../public/img/"+req.file.filename
-          }
-        users.push(nuevoUser);
-        writeJson(users);
-        res.redirect('/products/list')
-   }
-   */
-   },
-   login: (req, res) =>{
      return res.render("login")
-   },
-   processLogin : (req, res) => {
-     
-    db.Usuario.findAll()
-      .then()
-    const resultValidation = validationResult(req);
-   
-    for (let  i = 0; i < users.length ; i++){
-      if (users[i].email== req.body.email){
-        if (bcrypt.compareSync(req.body.password, users[i].password)){
-          var usuarioALoguearse = users[i]
-          break;
+  },
+  processLogin : async (req, res) => {
+
+    let errores = validationResult(req);
+    if(errores.isEmpty()){
+      let userToLogin = await db.Usuarios.findOne({
+        where: { email: req.body.email }
+      });
+        if(userToLogin) {
+          if(userToLogin.password == req.body.password){
+              req.session.userLogged = userToLogin;
+              if(req.body.recordame) {
+                res.cookie('usuarioId', userToLogin.id,{maxAge: 60000})
+              }
+            return res.redirect('/')
+          }
+          
         }
-      }
+    } else {
+      return res.render('login', {
+        errors:errores.errors, 
+        old: req.body
+    });
     }
 
-    if (usuarioALoguearse== undefined){
-      return res.render ("login", {errors: [
-        {msg: "Credenciales invalidas"}]
-       }
-       )
-    }
-    req.session.usuarioLogueado =  usuarioALoguearse
-    if (req.body.recordame != undefined){
-      res.cookie ("recordame", usuarioALoguearse.email, {maxAge: 600000})
-    }
-   },
-   profile : (req, res) => {
-     let users = findAll
-     res.render ("profile", {users:users})
-   }
-    /*edit: (req,res) => {
-        let users = findAll();
-          
-          let usersEditar = users.find(function(user){
-              return user.id == req.params.id
-          })
-          res.render("detalleEditProducto", {user: frutosEditar})
-      },
-      update: (req,res) => {
-          let users = findAll();
-      
-          let usersSecosActualizado = users.map(user=>{
-            if(user.id == req.params.id){
-              user.name = req.body.name
-              user.price = req.body.price,
-              user.category = req.body.category,
-              user.description = req.body.description
-            }
-            return user;
-          })
-          writeJson(users);
-          res.redirect('/products/detail/'+req.params.id)
-      },
-      destroy: (req, res) => {
-        let users = findAll ();
-  
-        let nuevoArray = users.filter (function (user){
-          return user.id != req.params.id;
-        });
-        writeJson(nuevoArray);
-        res.redirect ('/products/list')
-      }*/
+    
+  },      
+  profile: (req, res) => {
+     res.render ("profile",{
+      user:req.session.userLogged   
+     })
+  },
+  logout: (req,res)=>{
+    req.session.destory();
+    return res.redirect('/')
+
+  },
+    
 }
+
 module.exports = usersControllers;
