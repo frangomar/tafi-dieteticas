@@ -31,6 +31,7 @@ router.post('/create', fileUpload.single('image'), validations, usersControllers
 router.post ("/login",validations, usersControllers.processLogin);
 router.get ("/login", guestMiddleware, usersControllers.login);
 router.get("/profile", authMiddleware , usersControllers.profile);
+router.get ("/list", usersControllers.list);
 
 
 module.exports = router;

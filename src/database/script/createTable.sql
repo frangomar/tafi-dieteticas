@@ -23,6 +23,7 @@ email varchar(50) not null,
 password varchar(50) not null,
 gender varchar(50) not null,
 access_id int not null,
+image varchar(50) not null,
 foreign key(access_id) references accesses (id));
 
 create table cart_product(
@@ -30,8 +31,6 @@ id int primary key primary KEY auto_increment not null,
 product_id int not null,
 foreign key (product_id) references products (id));
 
-alter table users 
-add image int not null;
 
 create table carts (
 id int primary KEY auto_increment not null,

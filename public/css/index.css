@@ -130,6 +130,21 @@ main section  a {
     width: 100%;
 }
 
+article.producto {
+    width: 100%;
+}
+
+.boton {
+    background: white;
+    color: #15ab84;
+    border-color: #15ab84;
+    padding: 20px;
+    width: 90%;
+    margin: 20px;
+    box-shadow: none;
+    text-transform: uppercase;
+}
+
 .descripcion {
     display: flex;
     flex-wrap: wrap;
@@ -139,7 +154,14 @@ main section  a {
     position: relative;
     vertical-align: middle;
     text-align: center;
+    max-width: 300px;
+    margin: auto;
     
+}
+.precio-nombre {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .barra-categorias {
@@ -220,6 +242,16 @@ footer{
 }
 
 /*////////////////////-MEDIA QUERIES-////////////////////*/
+@media (min-width:768px){
+    article.producto {
+        width: 50%;
+    }
+}
+@media (min-width:1024px){
+    article.producto {
+        width: 33%;
+    }
+}
 
 @media (min-width:490px) {
     
@@ -301,6 +333,7 @@ footer{
     header {
         max-width: 1255px;
         margin:auto;
+        width: 100%;
     }
 
     .navbar{
@@ -312,12 +345,8 @@ footer{
         padding: 15px 15px 20px;
     }
 
-    .producto {
-        flex: 25%;
-    }
-
-    .producto {
-        flex: 20%;
+    article.producto {
+        width: 25%;
     }
 
     .producto3 {
@@ -334,7 +363,8 @@ footer{
         margin: 0;
     }
 
-    footer {
+    footer .modoflex{
+        width: 100%;
         max-width: 1255px;
         margin: auto;
         
@@ -358,10 +388,7 @@ footer{
         margin: auto;
     }
     
-    body {
-        background-color: lightgrey;
-    }
-
+   
     
 
     .logo {

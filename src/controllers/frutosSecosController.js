@@ -72,7 +72,7 @@ const frutosSecosController = {
     
     },
     detail: (req,res) => {
-      db.Productos.findByPk(rq.params.id)
+      db.Productos.findByPk(req.params.id)
       .then(function(producto) {
         res.render('detalleProducto', {producto:producto})
       })

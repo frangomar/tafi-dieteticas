@@ -256,6 +256,7 @@ footer{
     header {
         max-width: 1255px;
         margin:auto;
+        width: 100%
     }
 
     .navbar{
@@ -267,16 +268,8 @@ footer{
         padding: 15px 15px 20px;
     }
 
-    .producto {
-        flex: 25%;
-    }
-
-    .producto {
-        flex: 20%;
-    }
-
-    .producto3 {
-        flex: 20%;
+    article.producto {
+        width: 25%;
     }
 
     .producto4 {
@@ -289,7 +282,8 @@ footer{
         margin: 0;
     }
 
-    footer {
+    footer .modoflex{
+        width: 100%;
         max-width: 1255px;
         margin: auto;
         
@@ -313,9 +307,7 @@ footer{
         margin: auto;
     }
     
-    body {
-        background-color: lightgrey;
-    }
+    
 
     
 

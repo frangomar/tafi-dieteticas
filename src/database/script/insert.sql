@@ -30,7 +30,7 @@ insert into accesses (title)
 values ('admin');
 insert into accesses (title)
 values ('user');
-insert into users (firstName, lastname, email, password, gender, access_id)
-values ('admin', 'admin', 'admin@gmail.com','123', 'masculino', 2);
-insert into users (firstName, lastname, email, password, gender, access_id)
-values ('juan', 'perez', 'jperez@gmail.com','123', 'masculino', 1);
+insert into users (firstName, lastname, email, password, gender, access_id, image)
+values ('admin', 'admin', 'admin@gmail.com','123', 'masculino', 2, imagenadmin);
+insert into users (firstName, lastname, email, password, gender, access_id, image)
+values ('juan', 'perez', 'jperez@gmail.com','123', 'masculino', 1, imagejuanperez);

@@ -31,7 +31,7 @@ const usersControllers = {
               })
       
           }*/
-          console.log(req.body)
+          
       await db.Usuarios.create({
         firstName:req.body.firstName,
         lastname:req.body.lastName,
@@ -41,9 +41,7 @@ const usersControllers = {
         image: req.file.filename,
         access_id: "1",
       })
-      /*.then(function(){
-      return res.redirect('/users/login');
-  })*/
+
     res.redirect("/users/login")
   },
     

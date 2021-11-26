@@ -206,6 +206,7 @@ footer{
     header {
         max-width: 1255px;
         margin:auto;
+        width: 100%
     }
 
     .navbar{
@@ -220,7 +221,8 @@ footer{
         margin: 0;
     }
 
-    footer {
+    footer .modoflex{
+        width: 100%;
         max-width: 1255px;
         margin: auto;
         
