@@ -31,6 +31,42 @@ values ('admin');
 insert into accesses (title)
 values ('user');
 insert into users (firstName, lastname, email, password, gender, access_id, image)
-values ('admin', 'admin', 'admin@gmail.com','123', 'masculino', 2, imagenadmin);
+values ('admin', 'admin', 'admin@gmail.com','123', 'masculino', 2, 'admin.jpg');
 insert into users (firstName, lastname, email, password, gender, access_id, image)
-values ('juan', 'perez', 'jperez@gmail.com','123', 'masculino', 1, imagejuanperez);
+values ('juan', 'perez', 'jperez@gmail.com','123', 'masculino', 1, 'null');
+update products
+set image = 'lecheTratenfu.png'
+where id = 1 ;
+update products
+set image = 'lecheCocoon.png'
+where id = 2 ;
+update products
+set image = 'lecheVrink.png'
+where id = 3;
+update products
+set image = 'lecheBiba.png'
+where id = 4 ;
+update products
+set image = 'lecheSilk.png'
+where id = 5 ;
+update products
+set image = 'tofu-soyana.png'
+where id = 6 ;
+update products
+set image = 'tofu-soyarroz.png'
+where id = 7 ;
+update products
+set image = 'bocadito-nuez.png'
+where id = 8 ;
+update products
+set image = 'bocadito-chia.png'
+where id = 9;
+update products
+set image = 'bocadito-almendras.png'
+where id = 10;
+update products
+set image = 'barra-frutilla.png'
+where id = 11;
+update products
+set image = 'mix-orann.png'
+where id = 12;

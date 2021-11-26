@@ -132,7 +132,9 @@ main section  a {
 
 article.producto {
     width: 100%;
+    
 }
+
 
 .boton {
     background: white;
@@ -174,6 +176,10 @@ article.producto {
 
 .nombre {
     text-align: center;
+}
+article.usuario {
+    width: 100%;
+    margin: 5px;
 }
 
 /*////////////////////-FOOTER-////////////////////*/
@@ -246,9 +252,15 @@ footer{
     article.producto {
         width: 50%;
     }
+    article.usuario{
+        width: 50%;
+    }
 }
 @media (min-width:1024px){
     article.producto {
+        width: 33%;
+    }
+    article.usuario{
         width: 33%;
     }
 }

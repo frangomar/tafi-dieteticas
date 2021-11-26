@@ -14,13 +14,17 @@
       <% usuarios.forEach(function(usuario) { %>
         <article class="usuario">
           <a href="/users/list/<%= usuario.id %>"> <div class="contenedor-foto-usuario">
-           <img src="../../public/img/<% usuario.image ? usuario.image: "userDefault.png" %>  class="foto-usuario"> 
+            <% if (usuario.image != null) { %>
+              <img src="/img/<%= usuario.image %>" class="foto-producto"> 
+            <% } else { %>
+            <img src="/img/userDefault.png" class="foto-producto"> 
+             <% } %>
 
         </div>
         <div class="descripcion">
             
             <p class="nombre" style="color: black;">$<%= usuario.firstName %></p>
-            <p class="apellido"style="color: black;"><%= usuario.lastName %> </p>
+            <p class="apellido"style="color: #000;"><%= usuario.lastName %> </p>
         </div>
         </a>
         </article> 
