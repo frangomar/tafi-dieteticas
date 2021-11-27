@@ -4,60 +4,45 @@
       <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/register.css">
     </head>
+    <%- include('./partials/header') %>
 <body>
     <main>
-        <div class="barra-total">
-            <div ><a href=""><h3>Precio</h3></a>  
+        <section class="contenedorSole">
+            <div class="tabla1Sole">
+                <table class="tableCart">
+                    <thead class="theadCart">
+                    <th scope="col">Cant.</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Precio Unitario</th>
+                    <th scope="col">Subtotal</th>
+                    </thead>
+                    <tbody class="tbodyCart">
+                    <%productos.forEach(producto=>{ %>
+                    <form  class="tm-edit-product-form" action="" method="POST" >
+                    <tr class="trCart">
+                    <td><p><%=producto.cantidad%></p></td>
+                    <td class="tdfotoproducto"><img src="/img/<%=producto.image%>"></td>
+                    <td class="nombreCart"><h3><%=producto.nombre%></h3><br><p>Cód: <%=producto.id%></p></td>
+                    <td><p><%producto.marca_id%></p></td>
+                    <td><p>$<%=producto.precio%></p></td>
+                    <td class="subtotalA"><p><b>$<%=producto.subtotal%></b></p></td>
+                    </form>
+                    <td> <form action="/productCart/delete/<%=producto.id %>/?_method=DELETE" method="POST" >
+                        <button type="submit" class="botonBorrar"><i class="fas fa-trash-alt"></i></button>
+                    </form>  
+                    </td>
+                    </tr> 
+                 <% }) %>       
+                     </tbody>
+                </table>
             </div>
-            <div>
-               <a href=""><h3>Cantidad</h3></a> 
-            </div>
-            <div>
-                <a href=""><h3> Total</h3></a>
-            </div>
-            <article class="producto">
-                <a href=""> <div class="contenedor-foto-producto">
-                    <img src="/img/bocadito-nuez.png" class="foto-producto">
-                </div>
-                <div class="descripcion">
-                    <p class="nombre">Bocadito de nuez </p>
-                    <p class="precio">$111</p>
-                    <p class= "cantidad"></p>
-                    <p class= "Total"></p>
-                </div>
-                </a>
-            </article>
-
-            <article class="producto">
-                <a href=""> <div class="contenedor-foto-producto">
-                    <img src="/img/bocadito-chia.png" class="foto-producto">
-                </div>
-                <div class="descripcion">
-                    <p class="nombre">Bocadito de chia </p>
-                    <p class="precio">$111</p>
-                    <p class= "cantidad"></p>
-                    <p class= "Total"></p>
-                </div>
-                </a>
-            </article>
-
-            <article class="producto">
-                <a href=""> <div class="contenedor-foto-producto">
-                    <img src="/img/bocadito-almendras.png" class="foto-producto">
-                </div>
-                <div class="descripcion">
-                    <p class="nombre">Bocadito de almendras </p>
-                    <p class="precio">$111</p>
-                    <p class= "cantidad"></p>
-                    <p class= "Total"></p>
-                </div>
-                </a>
-            </article>
             
-        </div>
+        </section>
     </main>
 
-  <%- include('./partials/header') %>
+  
   <%- include('./partials/footer') %>
 </body>
 </html>
