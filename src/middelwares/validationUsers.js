@@ -3,10 +3,10 @@ const {check} = require('express-validator')
 const validations = {
    register:[    
       check('firstName').notEmpty().withMessage('Tienes que escribir tu Nombre'),
-      check('lastname').notEmpty().withMessage('Tienes que escribir tu Apellido'),
+      check('lastName').notEmpty().withMessage('Tienes que escribir tu Apellido'),
       check('email').notEmpty().withMessage('Tienes que escribir un Correo Electronico').bail()
          .isEmail().withMessage('Debes escribir un formato de correo valido'),
-      check('password').notEmpty().withMessage('Tienes que escribir una Contraseña'),
+      check('password').isLength({min: 8 , max : 12}).withMessage('Ingresa una contraseña de minimo 8 caracteres y maximo 12 caracteres').notEmpty(),
       check('gender').notEmpty().withMessage('Tienes que escribir el genero con el que te identificas'),
       check('image').custom((value, {req}) => {
          let file =req.file;

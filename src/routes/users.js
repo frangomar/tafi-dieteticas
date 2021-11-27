@@ -29,7 +29,7 @@ router.post('/create',guestMiddleware, fileUpload.single('image'), validations.r
 router.post ("/login", usersControllers.processLogin);
 router.get ("/login", guestMiddleware, usersControllers.login);
 router.get("/profile" , authMiddleware, usersControllers.profile);
-router.get ("/logout", guestMiddleware, usersControllers.logout);
+router.get ("/profile", guestMiddleware, usersControllers.logout);
 router.get ("/list", usersControllers.list);
 
 module.exports = router;

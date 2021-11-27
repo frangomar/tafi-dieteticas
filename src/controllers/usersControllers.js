@@ -22,27 +22,27 @@ const usersControllers = {
     store: async function(req, res){
       
       const errores = validationResult(req);
-        /*
-        if(!errores.isEmpty()){
+        
+        if(!errores.isEmpty()){  
               return res.render("register", {
                   errores: errores.errors,
                   oldData: req.body,
                  
               })
       
-          }*/
-          
-      await db.Usuarios.create({
-        firstName:req.body.firstName,
-        lastname:req.body.lastName,
-        email:req.body.email,
-        password: req.body.password,
-        gender: req.body.gender,
-        image: req.file.filename,
-        access_id: "1",
-      })
-      
-    res.redirect("/users/login")
+          } else {
+              await db.Usuarios.create({
+                firstName:req.body.firstName,
+                lastname:req.body.lastName,
+                email:req.body.email,
+                password: req.body.password,
+                gender: req.body.gender,
+                image: req.file.filename,
+                access_id: "1",
+              })
+            
+            res.redirect("/users/login")
+          }
   },
   login: (req, res) =>{
 
