@@ -14,7 +14,7 @@
                     <th scope="col">Cant.</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    <th scope="col">Marca</th>
+                    <!--//<th scope="col">Marca</th>-->
                     <th scope="col">Precio Unitario</th>
                     <th scope="col">Subtotal</th>
                     </thead>
@@ -24,9 +24,9 @@
                     <tr class="trCart">
                     <td><p><%=producto.cantidad%></p></td>
                     <td class="tdfotoproducto"><img src="/img/<%=producto.image%>"></td>
-                    <td class="nombreCart"><h3><%=producto.nombre%></h3><br><p>Cód: <%=producto.id%></p></td>
-                    <td><p><%producto.marca_id%></p></td>
-                    <td><p>$<%=producto.precio%></p></td>
+                    <td class="nombreCart"><h3><%=producto.title%></h3><br><p>Codigo: <%=producto.id%></p></td>
+                   <td><p><%producto.description%></p></td>
+                    <td><p>$<%=producto.price%></p></td>
                     <td class="subtotalA"><p><b>$<%=producto.subtotal%></b></p></td>
                     </form>
                     <td> <form action="/productCart/delete/<%=producto.id %>/?_method=DELETE" method="POST" >
