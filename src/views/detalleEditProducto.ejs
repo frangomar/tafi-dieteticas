@@ -47,8 +47,11 @@
           <a href="/products/detail/<%= producto.id %>/edit"></a>
           <form action="/products/detail/<%= producto.id %>/delete?_method=delete" method="POST">
             <button class="boton" type="submit" id="delete">borrar</button>
-               
+          </form>    
   </section>
   </main>
 
   <%- include('./partials/footer') %>
+  <script src="/js/front-product-edit.js"> </script>
+</body>
+</html>
