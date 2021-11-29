@@ -10,8 +10,13 @@
 
   <%- include('./partials/header') %>
   <main>
+    <div class="titulo-pn">
+        <h2>PRODUCTOS VEGANOS</h2>
+      </div>
     <section>
+      
       <% productos.forEach(function(producto) { %>
+        <% if (producto.category_id == 1){%>
         <article class="producto">
           <a href="/products/detail/<%= producto.id %>"> <div class="contenedor-foto-producto">
           <% if (producto.image != null) { %>
@@ -28,9 +33,35 @@
         </div>
         </a>
         </article> 
-        <% }) %>
+        <% }}) %>
     </section>
+    <div class="titulo-pn">
+      <h2>FRUTOS SECOS</h2>
+    </div>
+    <section>
     
+    <% productos.forEach(function(producto) { %>
+      <% if (producto.category_id == 2){%>
+      <article class="producto">
+        <a href="/products/detail/<%= producto.id %>"> <div class="contenedor-foto-producto">
+        <% if (producto.image != null) { %>
+          <img src="/img/<%= producto.image %>" class="foto-producto"> 
+        <% } else { %>
+        <img src="/img/productDefault.png" class="foto-producto"> 
+         <% } %>
+         <!--? producto.image: 'productDefault.png' --> 
+      </div>
+      <div class="descripcion">
+          <i class="fas fa-truck"></i>
+          <p class="precio">$<%= producto.price %></p>
+          <p class="nombre"><%= producto.title %> </p>
+      </div>
+      </a>
+      </article> 
+      <% }}) %>
+    </section>
   </main>
 
   <%- include('./partials/footer') %>
+</body>
+</html>

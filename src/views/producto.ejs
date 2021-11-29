@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+    <head>
+      <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/index.css">
+    </head>
+    
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+  
+    <head>
+      <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/index.css">
+    </head>
+    
+<body>
+
+  <%- include('./partials/header') %>
+  <main> 
+    <div class="titulo-pn">
+        <h2>PRODUCTOS ENCONTRADOS</h2>
+    </div>
+   <section>
+      
+      <% products.forEach(function(producto) { %>
+        
+        <article class="producto">
+          <a href="/products/detail/<%= producto.id %>"> <div class="contenedor-foto-producto">
+          
+          <img src="/img/<%=producto.image%>" class="foto-producto"> 
+           
+           <!--? producto.image: 'productDefault.png' --> 
+        </div>
+        <div class="descripcion">
+            <i class="fas fa-truck"></i>
+            <p class="precio">$<%= producto.price %></p>
+            <p class="nombre"><%= producto.title %> </p>
+        </div>
+        </a>
+        </article> 
+        <% }) %>
+    </section>
+    </main>
+
+<%- include('./partials/footer') %>
+</body>
+</html>

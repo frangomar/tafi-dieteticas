@@ -30,8 +30,11 @@ router.get('/detail/:id', frutosSecosController.detail)
 
 //vista y procesamiento de edicion de producto
 router.get('/detail/:id/edit',frutosSecosController.edit )
-router.post('/detail/:id/edit', frutosSecosController.update)
+router.post('/detail/:id/edit',fileUpload.single('image'), frutosSecosController.update)
 
 //procesamiento de borrado de producto
 router.delete('/detail/:id/delete', frutosSecosController.destroy)
+
+//busqueda de producto por barra
+router.get('/search', frutosSecosController.search)
 module.exports = router;

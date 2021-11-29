@@ -24,7 +24,15 @@
         <button type="submit" class="boton">
           editar
         </button>
-      </a>
+      </form></a>
+      <form action="/carritoDeCompras/add/<%= producto.id %>" method="POST" id="formulario">
+        <div 
+            <p class="label"><label for="quantity"></label>Cantidad:</p>
+        <input class="contadorgz" type="number" name="quantity" id="quantity" value="1">
+    </div>
+    <button class="boton" type="submit">Agregar al carrito</button>
+      </form> 
+      
       </article> 
     
   </main>

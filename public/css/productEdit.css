@@ -1,6 +1,5 @@
-/*///////////////////////////////////--INDEX--///////////////////////////////////*/
+/*//////////-GENERAL-//////////*/
 
-/*////////////////////-GENERAL-////////////////////*/
 *{
     margin:0px;
     padding:0px;
@@ -13,8 +12,7 @@ p {
     font-size:14px;
 }
 
-/*////////////////////-HEADER-////////////////////*/
-
+/*//////////-HEADER-//////////*/
 
 header {
     background-color: #10AC84;
@@ -35,10 +33,6 @@ header {
 
 .carrito a {
     text-decoration: none;
-}
-.text-danger {
-    color: #10AC84;
-    background-color: #10AC84;
 }
 
 .carrito i {
@@ -72,121 +66,56 @@ header {
     
 }
 
-
-
-/*////////////////////-MAIN-////////////////////*/
 main {
     text-align: center; 
-    display: block;
+    display: flex;
     width: 100%;
     background-color: #fff;
 }
 
-.banner-index {
-    display: none;
+.form-register{
+    width: 1000px;
+    background: white;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    /*box-shadow: 7px 13px 37px 000;*/
+    justify-content: center;
+    
+
+}
+
+.form-register h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+    align-items: center;
+
+}
+
+.form-register .boton{
     width: 100%;
-}
-
-.titulo-pn {
-    background-color: rgba(16,172, 132, 0.3);
-    text-align: center;
-    padding: 5px 0;
-    vertical-align: middle;
-    
+    background:green;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0px;
+    font-size: 16px;
     
 }
 
-.titulo-pn h2 {
+.control{
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
 }
-
-main section {
-    display:flex;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-}
-
-main section  a {
-    text-decoration: none;
-    color: black;
-}
-.producto1 {
-   flex: 50%;
-   background-color: #fff;
-   
-}
-.producto2 {
-    flex:50%;
-    background-color: #fff;
-    
-}
-.producto3 {
-    flex:50%;
-    background-color: #fff;
-    
-}
-.producto4 {
-    flex:50%;
-    background-color: #fff;
-}
-
-.foto-producto {
-    width: 100%;
-}
-
-article.producto {
-    width: 100%;
-    
-}
-
-
-.boton {
-    background: white;
-    color: #15ab84;
-    border-color: #15ab84;
-    padding: 20px;
-    width: 90%;
-    margin: 20px;
-    box-shadow: none;
-    text-transform: uppercase;
-}
-
-.descripcion {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 12px 20px;
-    flex-direction: row;
-    justify-content: space-evenly;
-    position: relative;
-    vertical-align: middle;
-    text-align: center;
-    max-width: 300px;
-    margin: auto;
-    
-}
-.precio-nombre {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.barra-categorias {
-    display: none;
-}
-
-.barra-categorias div :hover {
-    opacity: 0.8;
-}
-
-.nombre {
-    text-align: center;
-}
-article.usuario {
-    width: 100%;
-    margin: 5px;
-}
-
-/*////////////////////-FOOTER-////////////////////*/
 
 footer {
     width: 100%;
@@ -252,22 +181,6 @@ footer{
 }
 
 /*////////////////////-MEDIA QUERIES-////////////////////*/
-@media (min-width:768px){
-    article.producto {
-        width: 50%;
-    }
-    article.usuario{
-        width: 50%;
-    }
-}
-@media (min-width:1024px){
-    article.producto {
-        width: 33%;
-    }
-    article.usuario{
-        width: 33%;
-    }
-}
 
 @media (min-width:490px) {
     
@@ -349,7 +262,7 @@ footer{
     header {
         max-width: 1255px;
         margin:auto;
-        width: 100%;
+        width: 100%
     }
 
     .navbar{
@@ -363,10 +276,6 @@ footer{
 
     article.producto {
         width: 25%;
-    }
-
-    .producto3 {
-        flex: 20%;
     }
 
     .producto4 {
@@ -404,7 +313,8 @@ footer{
         margin: auto;
     }
     
-   
+    
+
     
 
     .logo {

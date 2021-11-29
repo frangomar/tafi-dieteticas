@@ -5,6 +5,7 @@ const db = require('../database/models');
 const {
   validationResult
 } = require('express-validator');
+const { Op } = require("sequelize");
 const frutosSecosController = {
   //metodo para mostrar todos los productos
   list: (req, res) => {
@@ -67,7 +68,7 @@ const frutosSecosController = {
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      image: "../../public/img/" + req.file.filename,
+      image: req.file.filename,
       category: req.body.category,
     }, {
       where: {
@@ -83,7 +84,22 @@ const frutosSecosController = {
       }
     })
     res.redirect('/products/list');
-  }
+  },
+  search : async (req, res) => {
+       
+    db.Productos.findAll({
+
+        where: {
+            title: { [Op.like]: '%' + req.query.search + '%' }
+            
+        }
+    })
+ 
+    .then(products=>{
+        res.render("producto",{products})
+    })
+    .catch(err=>{res.send(err)})
+}
 };
 
 module.exports = frutosSecosController;

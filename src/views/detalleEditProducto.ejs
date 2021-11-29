@@ -2,32 +2,39 @@
 <html lang="en">
     <head>
       <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/productEdit.css">
     </head>
 <body>
 
   <%- include('./partials/header') %>
   <main>
     <section class="form-register">
-      <form action="/products/detail/<%= producto.id %>/edit" method="POST">
+      <form action="/products/detail/<%= producto.id %>/edit" method="POST" enctype="multipart/form-data">
           
-          <h4>Edicion de producto</h4>
+          <h3>Edicion del producto <%= producto.title %> </h3>
           <div>
-          <label for="name">nombre de producto</label>
+            <img src="/img/<%= producto.image %>" class="foto-producto"> 
+           </div>
+          <div>
+          <label for="name">Nombre de producto</label>
           <input class="control" type="text" name="name" id="name" value="<%= producto.title %>">
           </div>
-
-
           <div>
-          <label for="category">category</label>
+          <label for="category">Category</label>
           <input class="control" type="text" name="category" id="category" value="<%= producto.category %>">
           </div>
           
           
           <div>
-          <label for="price">precio</label>
+          <label for="price">Precio</label>
           <input class="control" type="number" name="price" id="price" value="<%= producto.price %>">
           </div>
+          <div>
+            <label for="image">Imagen</label>
+            <input class="control " type="file" name="image" id="image" value="<%=producto.image%>">
+                <div class = 'text-danger'>    
+                </div>
+        </div>
 
           <div>
           <label for="description">Descripcion</label>
@@ -37,10 +44,10 @@
             <button class="boton" type="submit">guardar</button>
           </div>
           </form>
-          <a href="/products/detail//<%= fruto.id %>/edit"></a>
-          <form action="/products/detail/<%= fruto.id %>/delete?_method=delete" method="POST">
+          <a href="/products/detail/<%= producto.id %>/edit"></a>
+          <form action="/products/detail/<%= producto.id %>/delete?_method=delete" method="POST">
             <button class="boton" type="submit" id="delete">borrar</button>
-          </form>       
+               
   </section>
   </main>
 
