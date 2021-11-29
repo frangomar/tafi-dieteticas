@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
       <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/productEdit.css">
     </head>
 <body>
 
@@ -12,6 +12,9 @@
       <form action="/products/detail/<%= producto.id %>/edit" method="POST" enctype="multipart/form-data">
           
           <h3>Edicion del producto <%= producto.title %> </h3>
+          <div>
+            <img src="/img/<%= producto.image %>" class="foto-producto"> 
+           </div>
           <div>
           <label for="name">Nombre de producto</label>
           <input class="control" type="text" name="name" id="name" value="<%= producto.title %>">
@@ -44,9 +47,7 @@
           <a href="/products/detail/<%= producto.id %>/edit"></a>
           <form action="/products/detail/<%= producto.id %>/delete?_method=delete" method="POST">
             <button class="boton" type="submit" id="delete">borrar</button>
-               <div>
-                <img src="/img/<%= producto.image %>" class="foto-producto"> 
-               </div>
+               
   </section>
   </main>
 
