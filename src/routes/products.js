@@ -18,12 +18,20 @@ const storage = multer.diskStorage({
 
 let fileUpload = multer ({storage});
 
-//rutas
+//listado de productos
 router.get('/list', frutosSecosController.list);
+
+//vista de formulario y procesamiento de creacion de nuevo producto
 router.get('/create', frutosSecosController.create);
 router.post('/create', fileUpload.single('image'), frutosSecosController.store)
+
+//detalle de producto
 router.get('/detail/:id', frutosSecosController.detail)
+
+//vista y procesamiento de edicion de producto
 router.get('/detail/:id/edit',frutosSecosController.edit )
 router.post('/detail/:id/edit', frutosSecosController.update)
+
+//procesamiento de borrado de producto
 router.delete('/detail/:id/delete', frutosSecosController.destroy)
 module.exports = router;

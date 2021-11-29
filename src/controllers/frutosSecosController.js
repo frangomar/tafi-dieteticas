@@ -1,138 +1,89 @@
 const fs = require("fs");
 const path = require("path");
 //const { Association } = require("sequelize/types");
-const db =require('../database/models');
-
-
-/*function findAll(){
-      let productsJson= fs.readFileSync(path.join(__dirname, "../data/products.json"))
-      let data = JSON.parse(productsJson)
-      return data
-    };
-function writeJson(array){
-      let arrayJson = JSON.stringify(array);
-      return fs.writeFileSync(path.join(__dirname, "../data/products.json"), arrayJson);
-    };*/
-
+const db = require('../database/models');
+const {
+  validationResult
+} = require('express-validator');
 const frutosSecosController = {
-    list: (req, res) => {
-      db.Productos.findAll()
-      .then(function(productos) {
-        res.render('productos', {productos:productos});
-
+  //metodo para mostrar todos los productos
+  list: (req, res) => {
+    db.Productos.findAll()
+      .then(function (productos) {
+        res.render('productos', {
+          productos: productos
+        });
       })
-        
-    },
-    create: (req, res) => {
+  },
+  //metodo para renderizar vista formulario de registro de producto
+  create:(req, res) => {
+    db.Categorias.findAll()
+    .then( function (categorias){
+      res.render('formProduct', {
+      categorias: categorias
+    })})
     
-      res.render('formProduct');
-    },
-    store: (req,res) => {
-      db.Productos.create({
-        title:req.body.title,
-        description:req.body.description,
-        price:req.body.price,
-        image:"/public/img/"+req.file.filename,
-        category: req.body.category,
+  },
+  //metodo de procesamiento y almacenado de nuevo producto
+  store: async function (req, res) {
 
-      });
-      res.redirect('productos')
-      /*let frutos = findAll();
-      let ultimo = frutos.length - 1;
-      if (req.file){
-    
-      let nuevoProducto = {
-        id: Number(frutos[ultimo].id + 1),
-        name:req.body.title ,
-        description: req.body.description ,
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.render("register", {
+        errors: errors.errors,
+        oldData: req.body,
+      })
+    } else {
+      await db.Productos.create({
+        title: req.body.title,
+        description: req.body.description,
         price: req.body.price,
-        category: req.body.category,
-        image: "../../public/img/"+req.file.filename
-      }
-      frutos.push(nuevoProducto);
-      writeJson(frutos);
-      res.redirect('/products/list')
+        image: req.file ? req.file.filename : "productDefault.png",
+        category_id: req.body.categoria,
+      });
+      res.redirect("/list")
     }
-    else {
-      
-
-      let nuevoProducto = {
-        id: Number(frutos[ultimo].id + 1),
-        name:req.body.name ,
-        description: req.body.description ,
-        price: req.body.price,
-        category: req.body.category,
-        image: req.body.image,
-        
-      } 
-      frutos.push(nuevoProducto);
-      writeJson(frutos);
-      res.redirect('/products/list')
-    }*/
-    
-    },
-    detail: (req,res) => {
-      db.Productos.findByPk(req.params.id)
-      .then(function(producto) {
-        res.render('detalleProducto', {producto:producto})
-      })
-      
-    },
-    edit: (req,res) => {
-      db.Productos.findByPk(req.params.id)
-      .then(function(producto) {
-        res.render("detalleEditProducto", {producto:producto});
-      })
-      /*let frutos = findAll();
-        
-        let frutosEditar = frutos.find(function(fruto){
-            return fruto.id == req.params.id
+  },
+  //metodo para renderizar un producto en particular de forma detallada
+  detail: (req, res) => {
+    db.Productos.findByPk(req.params.id)
+      .then(function (producto) {
+        res.render('detalleProducto', {
+          producto: producto
         })
-        res.render("detalleEditProducto", {fruto: frutosEditar})*/
-    },
-    update: (req,res) => {
-      db.Productos.update({
-        title:req.body.title,
-        description:req.body.description,
-        price:req.body.price,
-        image:"../../public/img/"+req.file.filename,
-        category: req.body.category,
-
-      }, {
-        where: {
-          id: req.params.id
-        }
       })
-      res.redirect('/products/detail/'+req.params.id)
-        /*let frutos = findAll();
-    
-        let frutosSecosActualizado = frutos.map(fruto=>{
-          if(fruto.id == req.params.id){
-            fruto.name = req.body.name
-            fruto.price = req.body.price,
-            fruto.category = req.body.category,
-            fruto.description = req.body.description
-          }
-          return fruto;
-        })
-        writeJson(frutos);
-        res.redirect('/products/detail/'+req.params.id)*/
-    },
-    destroy: (req, res) => {
-      db.Productos.destroy({
-        where: {
-          id: req.params.id
-        }
+  },
+  edit: (req, res) => {
+    db.Productos.findByPk(req.params.id)
+      .then(function (producto) {
+        res.render("detalleEditProducto", {
+          producto: producto
+        });
       })
-      res.redirect ('/products/list');
-      /*let frutos = findAll ();
-
-      let nuevoArray = frutos.filter (function (fruto){
-        return fruto.id != req.params.id;
-      });
-      writeJson(nuevoArray);
-      res.redirect ('/products/list')
-    }*/
+  },
+  update: (req, res) => {
+    db.Productos.update({
+      title: req.body.title,
+      description: req.body.description,
+      price: req.body.price,
+      image: "../../public/img/" + req.file.filename,
+      category: req.body.category,
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+    res.redirect('/products/detail/' + req.params.id)
+  },
+  destroy: (req, res) => {
+    db.Productos.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.redirect('/products/list');
   }
 };
+
 module.exports = frutosSecosController;

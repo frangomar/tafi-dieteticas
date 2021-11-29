@@ -22,14 +22,21 @@ const storage = multer.diskStorage({
 })
 const fileUpload = multer ({storage:storage});
 
+//vista para admin
+router.get('/list', usersControllers.list);
 
-router.get('/', usersControllers.list);
+//vista y creacion de usuario
 router.get('/create', usersControllers.create);
 router.post('/create',guestMiddleware, fileUpload.single('image'), validations.register, usersControllers.store);
-router.post ("/login", usersControllers.processLogin);
+
+//vista y proceso de login y logout
 router.get ("/login", guestMiddleware, usersControllers.login);
-router.get("/profile" , authMiddleware, usersControllers.profile);
+router.post ("/login", validations.login, usersControllers.processLogin);
 router.get ("/profile", guestMiddleware, usersControllers.logout);
-router.get ("/list", usersControllers.list);
+
+//vista perfil
+router.get("/profile" , authMiddleware, usersControllers.profile);
+
+
 
 module.exports = router;
