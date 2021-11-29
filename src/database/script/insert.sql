@@ -89,4 +89,7 @@ values ('Medallon menta','medallones de menta',130,'medallon-menta.png', 2);
 insert into products (title, description, price, image, category_id)
 values ('Medallon quinoa','medallones de quinoa',130,'medallon-quinoa.png', 2);
 insert into products (title, description, price, image, category_id)
-values ('Mix Energetico','medallones oran',130,'medallon-lenteja.png', 2);
+values ('Mix Energetico','medallones oran',130,'mix-orann.png', 2);
+update products
+set image = 'bocadito-nuez.png'
+where id = 8 ;
