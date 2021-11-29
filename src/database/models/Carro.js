@@ -16,10 +16,18 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        product: {
+        subtotal: {
+            allowNull: true,
+            type: DataTypes.INTEGER
+        },
+        product_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        order_id: {
+            allowNull: true,
+            type: DataTypes.INTEGER
+        }
                
     };
     let config = {
@@ -29,17 +37,18 @@ module.exports = (sequelize, DataTypes) => {
 
     const Carro = sequelize.define(alias, cols, config);
 
-    Carro.associate = function(models) {
-        Carro.belongsTo(models.Usuarios, {
-            as: 'usuarios',
-            foreignKey: 'user_id'
-        })
-        Carro.belongsToMany(models.Productos, {
+    Carro.associate = function(models){
+        Carro.belongsTo(models.Productos,{
             as: 'productos',
-            through: 'cart_product',
-            foreignKey:'cart_id',
-            otherKey: 'product_id',
-            timestamp: false
+            foreignKey: 'product_id',
+        });
+        Carro.belongsTo(models.Usuarios,{
+            as: 'usuarios',
+            foreignKey: 'user_id',
+        });
+        Carro.belongsTo(models.Ordenes,{
+            as: 'ordenes',
+            foreignKey: 'order_id',
         })
     }
     return Carro;
