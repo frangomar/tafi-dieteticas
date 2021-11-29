@@ -12,12 +12,18 @@
         <div class="burger-menu">
             <a href="#"><i class="fas fa-bars"></i></a>
         </div>
-        <div class="carrito">
-            <a href="/carritoDeCompras"><i class="fas fa-shopping-cart fa-lg" title="MI CARRITO" ></i></a> 
-            
-        </div>
+        <% if (usuario.access_id==1 || usuario.access_id==2 ) { %> 
         <div class="user">
-            <a href="/users/login"><i class="fas fa-user-circle"></i> <h4>Ingresar</h4></a>
+            <a href="/users/profile"><%= usuario.firstName%><i class="fas fa-user-circle"></i></a>
         </div>
+        <div class="carrito">
+            <a href="/carritoDeCompras"><i class="fas fa-shopping-cart fa-lg" title="MI CARRITO" ></i></a>
+        </div>
+        <% } else { %>
+        <div class ='user'>
+            <a href="/users/login"><i class="fas fa-user-circle"></i>Login</a>
+            <a href="/users/create">Registro</a>
+        </div>
+        <% } %>   
     </nav>
 </header>

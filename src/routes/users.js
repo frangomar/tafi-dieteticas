@@ -32,7 +32,7 @@ router.post('/create',guestMiddleware, fileUpload.single('image'), validations.r
 //vista y proceso de login y logout
 router.get ("/login", guestMiddleware, usersControllers.login);
 router.post ("/login", validations.login, usersControllers.processLogin);
-router.get ("/profile", guestMiddleware, usersControllers.logout);
+//router.get ("/profile", guestMiddleware, usersControllers.logout);
 
 //vista perfil
 router.get("/profile" , authMiddleware, usersControllers.profile);

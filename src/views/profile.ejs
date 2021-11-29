@@ -15,13 +15,12 @@
           <img src="/img/<%= user.image %>" class="foto-usuario">
       </div>
       <div class="descripcion">
-          <i class="fas fa-truck"></i>
           <p class="nombre"><%= user.firstName %></p>
           <p class="apellido"><%= user.lastname %> </p>
           
       </div>
       <form action="/users/logout" method="GET">
-        <button class="boton" type="submit" id="delete">borrar</button>
+        <button class="boton" type="submit" id="logout" name="logout">logout</button>
       </form> 
     </article>
 

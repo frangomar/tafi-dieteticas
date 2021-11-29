@@ -1,11 +1,8 @@
-const db = require('../database/models/')
-let userLoggedMiddleware = async (req, res, next) => {
-    res.locals.isLogged = false;
-    
-    if(req.session && req.session.userLogged) {
-        res.locals.isLogged = true;
-        res.locals.userLogged = req.session.userLogged;
+let userLoggedMiddleware = (req, res, next) => {
+    res.locals.usuario = false
+    if (req.session.userLogged) {
+        res.locals.usuario = req.session.userLogged;
     }
-    next()
+    return next();
 }
 module.exports = userLoggedMiddleware;

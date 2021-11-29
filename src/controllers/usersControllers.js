@@ -64,7 +64,7 @@ const usersControllers = {
               maxAge: 60000
             })
           }
-          return res.redirect('/')
+          return res.redirect('/users/profile')
         }
       }
     }
@@ -81,7 +81,7 @@ const usersControllers = {
   },
   //metodo para hacer logout
   logout: (req, res) => {
-    req.session.destory();
+    req.session.destroy();
     return res.redirect('/')
   },
 }
