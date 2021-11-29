@@ -55,6 +55,7 @@ const frutosSecosController = {
         })
       })
   },
+  //metodo para renderizar vista editar producto
   edit: (req, res) => {
     db.Productos.findByPk(req.params.id)
       .then(function (producto) {
@@ -63,6 +64,7 @@ const frutosSecosController = {
         });
       })
   },
+  //metodo para procesar edicion de producto
   update: (req, res) => {
     db.Productos.update({
       title: req.body.title,
@@ -77,6 +79,7 @@ const frutosSecosController = {
     })
     res.redirect('/products/detail/' + req.params.id)
   },
+  //metodo para eliminar producto
   destroy: (req, res) => {
     db.Productos.destroy({
       where: {
@@ -85,6 +88,7 @@ const frutosSecosController = {
     })
     res.redirect('/products/list');
   },
+  //metodo para buscar producto por la barra de busqueda
   search : async (req, res) => {
        
     db.Productos.findAll({
