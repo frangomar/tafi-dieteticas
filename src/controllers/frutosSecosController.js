@@ -42,7 +42,7 @@ const frutosSecosController = {
         image: req.file ? req.file.filename : "productDefault.png",
         category_id: req.body.categoria,
       });
-      res.redirect("/list")
+      res.redirect("/products/list")
     }
   },
   //metodo para renderizar un producto en particular de forma detallada
