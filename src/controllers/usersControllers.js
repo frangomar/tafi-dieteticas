@@ -19,11 +19,11 @@ const usersControllers = {
       
     },
     
-    store: async function(req, res){
-      
+    store: async (req, res)=>{
+       
       const errores = validationResult(req);
         
-        if(!errores.isEmpty()){  
+       if(!errores.isEmpty()){ 
               return res.render("register", {
                   errores: errores.errors,
                   oldData: req.body,

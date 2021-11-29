@@ -40,147 +40,59 @@
       <h2>PRODUCTOS NUEVOS</h2>
     </div>
 
-    <section>
-
-      <article class="producto">
-        <a href="">
-          <div class="contenedor-foto-producto">
-            <img src="/img/bocadito-nuez.png" class="foto-producto">
+    <main>
+      <div class="titulo-pn">
+          <h2>PRODUCTOS VEGANOS</h2>
+        </div>
+      <section>
+        
+        <% productos.forEach(function(producto) { %>
+          <% if (producto.category_id == 1){%>
+          <article class="producto">
+            <a href="/products/detail/<%= producto.id %>"> <div class="contenedor-foto-producto">
+            <% if (producto.image != null) { %>
+              <img src="/img/<%= producto.image %>" class="foto-producto"> 
+            <% } else { %>
+            <img src="/img/productDefault.png" class="foto-producto"> 
+             <% } %>
+             <!--? producto.image: 'productDefault.png' --> 
           </div>
           <div class="descripcion">
-            <div class="precio-nombre">
-            <i class="fas fa-truck"></i>
-            <p class="precio">$111</p>
-            <p class="nombre">Bocadito de nuez </p>
-          </div>
-            <button action= "POST" class="boton" type="submit">añadir al carrito</button>
-          </div>
-        </a>
-      </article>
-
-      <article class="producto">
-        <a href="">
-          <div class="contenedor-foto-producto">
-            <img src="/img/bocadito-chia.png" class="foto-producto">
-          </div>
-          <div class="descripcion">
-            <div class="precio-nombre">
-            <i class="fas fa-truck"></i>
-            <p class="precio">$111</p>
-            <p class="nombre">Bocadito de chia </p>
-            </div>
-            <button class="boton" type="submit">añadir al carrito</button>
-          </div>
-        </a>
-      </article>
-
-      <article class="producto">
-        <a href="">
-          <div class="contenedor-foto-producto">
-            <img src="/img/bocadito-almendras.png" class="foto-producto">
-          </div>
-          <div class="descripcion">
-            <div class="precio-nombre">
-            <i class="fas fa-truck"></i>
-            <p class="precio">$111</p>
-            <p class="nombre">Bocadito de almendras </p>
-            </div>
-            <button class="boton" type="submit">añadir al carrito</button>
-          </div>
-        </a>
-      </article>
-
-      <article class="producto">
-        <a href="">
-          <div class="contenedor-foto-producto">
-            <img src="/img/barra-frutilla.png" class="foto-producto">
-          </div>
-          <div class="descripcion">
-            <div class="precio-nombre">
-            <i class="fas fa-truck"></i>
-            <p class="precio">$111</p>
-            <p class="nombre">Barra de frutilla </p>
-          </div>
-            <button class="boton" type="submit">añadir al carrito</button>
-          </div>
-        </a>
-      </article>
-
-    </section>
-
-    <div class="titulo-pn">
-      <h2>PRODUCTOS DESTACADOS</h2>
-    </div>
-
-    <section>
-
-      <article class="producto">
-        <a href="">
-          <div class="contenedor-foto-producto">
-            <img src="/img/tofu-soyana.png" class="foto-producto">
-          </div>
-          <div class="descripcion">
-            <div class="precio-nombre">
-            <i class="fas fa-truck"></i>
-            <p class="precio">$111</p>
-            <p class="nombre">Tofu </p>
-          </div>
-            <button class="boton" type="submit">añadir al carrito</button>
-          </div>
-        </a>
-      </article>
-
-      <article class="producto">
-        <a href="#">
-          <div class="contenedor-foto-producto">
-            <img src="/img/mantequilla-mani.png" class="foto-producto">
-          </div>
-          <div class="descripcion">
-            <div class="precio-nombre">
               <i class="fas fa-truck"></i>
-              <p class="precio">$111</p>
-              <p class="nombre">Mantequilla de maní </p>
-            </div>
-            <button class="boton" type="submit">añadir al carrito</button>
+              <p class="precio">$<%= producto.price %></p>
+              <p class="nombre"><%= producto.title %> </p>
           </div>
-        </a>
-      </article>
-
-      <article class="producto">
-        <a href="">
-          <div class="contenedor-foto-producto">
-            <img src="/img/leche-soja.png" class="foto-producto">
-          </div>
-          <div class="descripcion">
-            <div class="precio-nombre">
-              <i class="fas fa-truck"></i>
-              <p class="precio">$111</p>
-              <p class="nombre">Leche de soja </p>
-            </div>
-            <button class="boton" type="submit">añadir al carrito</button>
-          </div>
-        </a>
-      </article>
-
-      <article class="producto">
-        <a href="">
-          <div class="contenedor-foto-producto">
-            <img src="/img/aceite-almendras.png" class="foto-producto">
-          </div>
-          <div class="descripcion">
-            <div class="precio-nombre">
+          </a>
+          </article> 
+          <% }}) %>
+      </section>
+      <div class="titulo-pn">
+        <h2>FRUTOS SECOS</h2>
+      </div>
+      <section>
+      
+      <% productos.forEach(function(producto) { %>
+        <% if (producto.category_id == 2){%>
+        <article class="producto">
+          <a href="/products/detail/<%= producto.id %>"> <div class="contenedor-foto-producto">
+          <% if (producto.image != null) { %>
+            <img src="/img/<%= producto.image %>" class="foto-producto"> 
+          <% } else { %>
+          <img src="/img/productDefault.png" class="foto-producto"> 
+           <% } %>
+           <!--? producto.image: 'productDefault.png' --> 
+        </div>
+        <div class="descripcion">
             <i class="fas fa-truck"></i>
-            <div class="precio">$111</div>
-            <div class="nombre">Aceite de almendras </div>
-          </div>
-          <button class="boton" type="submit">añadir al carrito</button>
-          </div>
+            <p class="precio">$<%= producto.price %></p>
+            <p class="nombre"><%= producto.title %> </p>
+            <button class="boton" type="submit">añadir al carrito</button>
+        </div>
         </a>
-      </article>
-
-    </section>
-
-  </main>
+        </article> 
+        <% }}) %>
+      </section>
+    </main>
 
   <%- include('./partials/footer') %>
 

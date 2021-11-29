@@ -26,4 +26,5 @@ router.get('/detail/:id', frutosSecosController.detail)
 router.get('/detail/:id/edit',frutosSecosController.edit )
 router.post('/detail/:id/edit',fileUpload.single('image'), frutosSecosController.update)
 router.delete('/detail/:id/delete', frutosSecosController.destroy)
+router.get('/search', frutosSecosController.search)
 module.exports = router;

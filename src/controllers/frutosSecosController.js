@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 //const { Association } = require("sequelize/types");
 const db =require('../database/models');
-
+const { Op } = require("sequelize");
 
 /*function findAll(){
       let productsJson= fs.readFileSync(path.join(__dirname, "../data/products.json"))
@@ -125,14 +125,23 @@ const frutosSecosController = {
         }
       })
       res.redirect ('/products/list');
-      /*let frutos = findAll ();
+      
+  },
+  search : async (req, res) => {
+       
+    db.Productos.findAll({
 
-      let nuevoArray = frutos.filter (function (fruto){
-        return fruto.id != req.params.id;
-      });
-      writeJson(nuevoArray);
-      res.redirect ('/products/list')
-    }*/
-  }
-};
+        where: {
+            title: { [Op.like]: '%' + req.query.search + '%' }
+            
+        }
+    })
+ 
+    .then(products=>{
+        res.render("producto",{products})
+    })
+    .catch(err=>{res.send(err)})
+},
+
+}
 module.exports = frutosSecosController;
