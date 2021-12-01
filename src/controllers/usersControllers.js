@@ -21,12 +21,17 @@ const usersControllers = {
     res.render("register")
   },
   //metodo para procesar y almacenar usuario registrado
-  store: async (req, res) => {
+  store: (req, res) => {
 
     const errors = validationResult(req);
 
-    
-      db.Usuarios.create({
+    /* if (!errors.isEmpty()) {
+       return res.render("register", {
+         errors: errors.errors,
+         oldData: req.body,
+       })
+     } else {*/
+    db.Usuarios.create({
         firstName: req.body.firstName,
         lastname: req.body.lastName,
         email: req.body.email,
@@ -37,7 +42,7 @@ const usersControllers = {
 
       })
       .then(res.redirect("/users/login"))
-    
+    //}
   },
   //metodo para renderizar vista de login
   login: (req, res) => {

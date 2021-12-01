@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-    <head>
-      <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/css/index.css">
-    </head>
-    
+
+<head>
+  <%- include('./partials/head') %>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
 <body>
 
   <%- include('./partials/header') %>
   <main>
     <section>
       <% usuarios.forEach(function(usuario) { %>
-        <article class="usuario">
-          <a href="/users/list/<%= usuario.id %>"> <div class="contenedor-foto-usuario">
+      <article class="usuario">
+        <a href="/users/list/<%= usuario.id %>">
+          <div class="contenedor-foto-usuario">
             <% if (usuario.image != null) { %>
-              <img src="/img/<%= usuario.image %>" class="foto-producto"> 
+            <img src="/img/<%= usuario.image %>" class="foto-producto">
             <% } else { %>
-            <img src="/img/userDefault.png" class="foto-producto"> 
-             <% } %>
+            <img src="/img/userDefault.png" class="foto-producto">
+            <% } %>
 
-        </div>
-        <div class="descripcion">
-            
+          </div>
+          <div class="descripcion">
+
             <p class="nombre" style="color: black;"><%= usuario.firstName %></p>
-            <p class="apellido"style="color: #000;"><%= usuario.lastname %> </p>
-        </div>
+            <p class="apellido" style="color: #000;"><%= usuario.lastname %> </p>
+          </div>
         </a>
-        </article> 
-        <% }) %>
+      </article>
+      <% }) %>
     </section>
-    
+
   </main>
 
   <%- include('./partials/footer') %>
 </body>
+
 </html>

@@ -5,7 +5,9 @@ const db = require('../database/models');
 const {
   validationResult
 } = require('express-validator');
-const { Op } = require("sequelize");
+const {
+  Op
+} = require("sequelize");
 const frutosSecosController = {
   //metodo para mostrar todos los productos
   list: (req, res) => {
@@ -17,13 +19,14 @@ const frutosSecosController = {
       })
   },
   //metodo para renderizar vista formulario de registro de producto
-  create:(req, res) => {
+  create: (req, res) => {
     db.Categorias.findAll()
-    .then( function (categorias){
-      res.render('formProduct', {
-      categorias: categorias
-    })})
-    
+      .then(function (categorias) {
+        res.render('formProduct', {
+          categorias: categorias
+        })
+      })
+
   },
   //metodo de procesamiento y almacenado de nuevo producto
   store: async function (req, res) {
@@ -89,21 +92,26 @@ const frutosSecosController = {
     res.redirect('/products/list');
   },
   //metodo para buscar producto por la barra de busqueda
-  search : async (req, res) => {
-       
+  search: async (req, res) => {
+
     db.Productos.findAll({
 
         where: {
-            title: { [Op.like]: '%' + req.query.search + '%' }
-            
+          title: {
+            [Op.like]: '%' + req.query.search + '%'
+          }
         }
-    })
- 
-    .then(products=>{
-        res.render("producto",{products})
-    })
-    .catch(err=>{res.send(err)})
-}
+      })
+
+      .then(products => {
+        res.render("producto", {
+          products
+        })
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
 };
 
 module.exports = frutosSecosController;
