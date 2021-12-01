@@ -51,7 +51,7 @@ create table carts (
 id int primary KEY auto_increment not null,
 user_id int not null,
 quantity int not null,
-subtotal int not null
+subtotal int not null,
 product_id int not null,
 order_id int not null,
 foreign key (product_id) references products (id),

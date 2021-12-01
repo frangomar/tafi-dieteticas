@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <%- include('./partials/head') %>
+
+<head>
+    <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/register.css">
-    </head>
-    <%- include('./partials/header') %>
+</head>
+<%- include('./partials/header') %>
+
 <body>
     <main>
         <section class="contenedorSole">
             <div class="tabla1Sole">
                 <table class="tableCart">
                     <thead class="theadCart">
-                    <th scope="col">Cant.</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <!--//<th scope="col">Marca</th>-->
-                    <th scope="col">Precio Unitario</th>
-                    <th scope="col">Subtotal</th>
+                        <th scope="col">Cant.</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <!--//<th scope="col">Marca</th>-->
+                        <th scope="col">Precio Unitario</th>
+                        <th scope="col">Subtotal</th>
                     </thead>
                     <tbody class="tbodyCart">
-                    <%productos.forEach(producto=>{ %>
-                    <form  class="tm-edit-product-form" action="" method="POST" >
-                    <tr class="trCart">
-                    <td><p><%=producto.cantidad%></p></td>
-                    <td class="tdfotoproducto"><img src="/img/<%=producto.image%>"></td>
-                    <td class="nombreCart"><h3><%=producto.title%></h3><br><p>Codigo: <%=producto.id%></p></td>
-                   <td><p><%producto.description%></p></td>
-                    <td><p>$<%=producto.price%></p></td>
-                    <td class="subtotalA"><p><b>$<%=producto.subtotal%></b></p></td>
-                    </form>
-                    <td> <form action="/productCart/delete/<%=producto.id %>/?_method=DELETE" method="POST" >
-                        <button type="submit" class="botonBorrar"><i class="fas fa-trash-alt"></i></button>
-                    </form>  
-                    </td>
-                    </tr> 
-                 <% }) %>       
-                     </tbody>
+                        <%productos.forEach(producto=>{ %>
+                        <form class="tm-edit-product-form" action="" method="POST">
+                            <tr class="trCart">
+                                <td>
+                                    <p><%=producto.cantidad%></p>
+                                </td>
+                                <td class="tdfotoproducto"><img src="/img/<%=producto.image%>"></td>
+                                <td class="nombreCart">
+                                    <h3><%=producto.title%></h3><br>
+                                    <p>Codigo: <%=producto.id%></p>
+                                </td>
+                                <td>
+                                    <p><%producto.description%></p>
+                                </td>
+                                <td>
+                                    <p></p>
+                                </td>
+                                <td class="subtotalA">
+                                    <p><b>$<%=producto.subtotal%></b></p>
+                                </td>
+                        </form>
+                        <td>
+                            <form action="/productCart/delete/<%=producto.id %>/?_method=DELETE" method="POST">
+                                <button type="submit" class="botonBorrar"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
                 </table>
             </div>
-            
+
         </section>
     </main>
-
-  
-  <%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>
 </body>
+
 </html>

@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/css/productEdit.css">
-    </head>
+
+<head>
+  <%- include('./partials/head') %>
+  <link rel="stylesheet" href="/css/productEdit.css">
+</head>
+
 <body>
 
   <%- include('./partials/header') %>
   <main>
     <section class="form-register">
       <form action="/products/detail/<%= producto.id %>/edit" method="POST" enctype="multipart/form-data">
-          
-          <h3>Edicion del producto <%= producto.title %> </h3>
-          <div>
-            <img src="/img/<%= producto.image %>" class="foto-producto"> 
-           </div>
-          <div>
+
+        <h3>Edicion del producto <%= producto.title %> </h3>
+        <div>
+          <img src="/img/<%= producto.image %>" class="foto-producto">
+        </div>
+        <div>
           <label for="name">Nombre de producto</label>
           <input class="control" type="text" name="name" id="name" value="<%= producto.title %>">
-          </div>
-          <div>
+        </div>
+        <div>
           <label for="category">Category</label>
           <input class="control" type="text" name="category" id="category" value="<%= producto.category %>">
-          </div>
-          
-          
-          <div>
-          <label for="price">Precio</label>
-          <input class="control" type="number" name="price" id="price" value="<%= producto.price %>">
-          </div>
-          <div>
-            <label for="image">Imagen</label>
-            <input class="control " type="file" name="image" id="image" value="<%=producto.image%>">
-                <div class = 'text-danger'>    
-                </div>
         </div>
 
-          <div>
+
+        <div>
+          <label for="price">Precio</label>
+          <input class="control" type="number" name="price" id="price" value="<%= producto.price %>">
+        </div>
+        <div>
+          <label for="image">Imagen</label>
+          <input class="control " type="file" name="image" id="image" value="<%=producto.image%>">
+          <div class='text-danger'>
+          </div>
+        </div>
+
+        <div>
           <label for="description">Descripcion</label>
           <input class="control" type="text" name="description" id="description" value="<%= producto.description %>">
-          </div>
-          <div>
-            <button class="boton" type="submit">guardar</button>
-          </div>
-          </form>
-          <a href="/products/detail/<%= producto.id %>/edit"></a>
-          <form action="/products/detail/<%= producto.id %>/delete?_method=delete" method="POST">
-            <button class="boton" type="submit" id="delete">borrar</button>
-          </form>    
-  </section>
+        </div>
+        <div>
+          <button class="boton" type="submit">guardar</button>
+        </div>
+      </form>
+      <a href="/products/detail/<%= producto.id %>/edit"></a>
+      <form action="/products/detail/<%= producto.id %>/delete?_method=delete" method="POST">
+        <button class="boton" type="submit" id="delete">borrar</button>
+      </form>
+    </section>
   </main>
 
   <%- include('./partials/footer') %>
   <script src="/js/front-product-edit.js"> </script>
 </body>
+
 </html>
