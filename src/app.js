@@ -13,6 +13,7 @@ const { application } = require('express');
 const methodOverride = require ('method-override');
 const session = require ("express-session");
 const userLoggedMiddleware = require ("./middelwares/userLoggedMiddleware");
+const port = process.env.PORT || 8000 ;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

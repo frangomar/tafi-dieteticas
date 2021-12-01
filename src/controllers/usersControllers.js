@@ -25,12 +25,7 @@ const usersControllers = {
 
     const errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
-      return res.render("register", {
-        errors: errors.errors,
-        oldData: req.body,
-      })
-    } else {
+    
       db.Usuarios.create({
         firstName: req.body.firstName,
         lastname: req.body.lastName,
@@ -39,9 +34,10 @@ const usersControllers = {
         gender: req.body.gender,
         image: req.file ? req.file.filename : "userDefault.png",
         access_id: 1,
+
       })
       .then(res.redirect("/users/login"))
-    }
+    
   },
   //metodo para renderizar vista de login
   login: (req, res) => {
