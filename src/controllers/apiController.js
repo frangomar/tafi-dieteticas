@@ -29,6 +29,7 @@ showProducts : async (req, res) =>{
         return res.json(showProductsJson);
       
  }
+ 
 }
 
 module.exports = apiController;
