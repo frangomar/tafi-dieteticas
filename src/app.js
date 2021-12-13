@@ -9,7 +9,6 @@ var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
 const productCartRouter = require("./routes/carrito.js");
 var apiRouter = require ('./routes/apiRouter');
-var apiUsersRouter = require ('./routes/apiUsersRouter');
 const { application } = require('express');
 const methodOverride = require ('method-override');
 const session = require ("express-session");

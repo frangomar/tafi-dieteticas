@@ -28,7 +28,36 @@ showProducts : async (req, res) =>{
         
         return res.json(showProductsJson);
       
- }
+ },
+ listUsers : async (req, res) =>{
+    let users =await db.Usuarios.findAll();
+    let usersCount = await db.Usuarios.count();
+    
+    let usersJson = {
+     meta:{
+         status: 200,
+         usersCount: usersCount,
+         url: "/api/users",
+         users: users,
+     },
+         }
+        
+        return res.json(usersJson);
+      
+ },
+ showUsers : async (req, res) =>{
+     let user = await db.Usuarios.findByPk(req.params.id)
+     let showUsersJson = {
+      meta:{
+          status: 200,
+          url: "/api/users/:id",
+         user: user,
+      },
+          }
+         
+         return res.json(showUsersJson);
+       
+  }
  
 }
 
