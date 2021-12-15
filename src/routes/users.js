@@ -30,8 +30,8 @@ const fileUpload = multer({
 router.get('/list', usersControllers.list);
 
 //vista y creacion de usuario
-router.get('/create', usersControllers.create);
-router.post('/create', guestMiddleware, fileUpload.single('image'), validations.register, usersControllers.store);
+router.get('/create',guestMiddleware, usersControllers.create);
+router.post('/create', fileUpload.single('image'), validations.register, usersControllers.store);
 
 //vista y proceso de login y logout
 router.get("/login", guestMiddleware, usersControllers.login);
