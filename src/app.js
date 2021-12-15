@@ -7,13 +7,13 @@ var app = express();
 var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
-const productCartRouter = require("./routes/carrito.js")
-
+const productCartRouter = require("./routes/carrito.js");
+var apiRouter = require ('./routes/apiRouter');
 const { application } = require('express');
 const methodOverride = require ('method-override');
 const session = require ("express-session");
 const userLoggedMiddleware = require ("./middelwares/userLoggedMiddleware");
-const port = process.env.PORT || 8000 ;
+const port = process.env.PORT || 3001 ;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,6 +40,7 @@ app.use("/carritoDeCompras",productCartRouter)
 app.use('/', indexRouter);
 app.use( '/products',productsRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 
 // catch 404 and forward to error handler
